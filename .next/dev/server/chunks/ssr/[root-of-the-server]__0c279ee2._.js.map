@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/GamerPC/OneDrive/Desktop/diyet-sistem/utils/supabase.ts"],"sourcesContent":["import { createClient } from '@supabase/supabase-js'\r\n\r\nconst supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!\r\nconst supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!\r\n\r\n// Bu instance, sadece anonim veya login olmuş kullanıcıların erişebileceği yetkilerle çalışır (Row Level Security - RLS kurallarına uyar)\r\nexport const supabase = createClient(supabaseUrl, supabaseAnonKey)\r\n"],"names":[],"mappings":";;;;AAAA;;AAEA,MAAM;AACN,MAAM;AAGC,MAAM,WAAW,IAAA,8LAAY,EAAC,aAAa"}}]
+}
