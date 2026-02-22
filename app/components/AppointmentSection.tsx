@@ -83,7 +83,6 @@ export default function AppointmentSection() {
                                 letterSpacing: "1px",
                                 textTransform: "uppercase",
                                 marginBottom: "20px",
-                                display: "block",
                             }}
                         >
                             Randevu
