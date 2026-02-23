@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "../../../utils/supabase";
 
@@ -113,48 +112,9 @@ export default function ClientMenuPage() {
     if (loading) return <div>Yükleniyor...</div>;
     if (!user) return <div>Yükleniyor...</div>;
 
-    const navLink: React.CSSProperties = {
-        padding: "12px 15px",
-        borderRadius: "8px",
-        color: "white",
-        textDecoration: "none",
-        fontSize: "14px",
-        transition: "background 0.3s",
-        opacity: 0.8
-    };
-
-    const activeNavLink: React.CSSProperties = {
-        ...navLink,
-        background: "rgba(255,255,255,0.1)",
-        opacity: 1,
-        fontWeight: 700
-    };
-
     return (
-        <div style={{ minHeight: "100vh", background: "#f9faf5", display: "flex", fontFamily: "var(--font-body)" }}>
-
-            {/* Sidebar */}
-            <div style={{ width: "260px", background: "#3d5a2d", color: "white", padding: "30px", display: "flex", flexDirection: "column", gap: "40px" }}>
-                <div>
-                    <h2 style={{ fontSize: "20px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "1px" }}>Sümeyye Gencal</h2>
-                    <p style={{ fontSize: "12px", opacity: 0.7, marginTop: "5px" }}>Danışan Paneli</p>
-                </div>
-
-                <nav style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                    <Link href="/dashboard" style={navLink}>Özet ve Analiz</Link>
-                    <Link href="/dashboard/menu" style={activeNavLink}>Diyet Listem</Link>
-                    <Link href="/dashboard/profile" style={navLink}>Profilim</Link>
-                    <Link href="/dashboard/progress" style={navLink}>Gelişim Grafiği</Link>
-                    <Link href="#" style={navLink}>Ayarlar</Link>
-                </nav>
-
-                <div style={{ marginTop: "auto" }}>
-                    <button onClick={() => { localStorage.removeItem("currentUser"); router.push("/"); }} style={{ background: "none", border: "none", color: "white", cursor: "pointer", fontSize: "14px", opacity: 0.8, padding: 0 }}>Çıkış Yap</button>
-                </div>
-            </div>
-
-            {/* Main Content */}
-            <div style={{ flex: 1, padding: "50px", overflowY: "auto" }}>
+        <>
+            <div style={{ flex: 1, padding: "50px", display: "flex", flexDirection: "column" }}>
                 <div style={{ marginBottom: "40px" }}>
                     <h1 style={{ fontSize: "32px", fontWeight: 700, color: "#333" }}>Günlük Diyet Listem</h1>
                     <p style={{ color: "#666" }}>Diyetisyeniniz tarafından size özel hazırlanan beslenme programı.</p>
@@ -293,6 +253,6 @@ export default function ClientMenuPage() {
                     </div>
                 )}
             </div>
-        </div>
+        </>
     );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "../../../utils/supabase";
 
@@ -93,35 +92,8 @@ export default function ProfilePage() {
     };
 
     return (
-        <div style={{ minHeight: "100vh", background: "#f9faf5", display: "flex", fontFamily: "var(--font-body)" }}>
-
-            {/* Sidebar (Copy of Dashboard for consistency) */}
-            <div style={{ width: "260px", background: "#3d5a2d", color: "white", padding: "30px", display: "flex", flexDirection: "column", gap: "40px" }}>
-                <div>
-                    <h2 style={{ fontSize: "20px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "1px" }}>Sümeyye Gencal</h2>
-                    <p style={{ fontSize: "12px", opacity: 0.7, marginTop: "5px" }}>Danışan Paneli</p>
-                </div>
-
-                <nav style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                    <Link href="/dashboard" style={navLink}>Özet ve Analiz</Link>
-                    <Link href="/dashboard/menu" style={navLink}>Diyet Listem</Link>
-                    <Link href="/dashboard/profile" style={activeNavLink}>Profilim</Link>
-                    <Link href="/dashboard/progress" style={navLink}>Gelişim Grafiği</Link>
-                    <Link href="#" style={navLink}>Ayarlar</Link>
-                </nav>
-
-                <div style={{ marginTop: "auto" }}>
-                    <button onClick={async () => {
-                        await supabase.auth.signOut();
-                        localStorage.removeItem("currentUser");
-                        router.push("/");
-                    }} style={{ background: "none", border: "none", color: "white", cursor: "pointer", fontSize: "14px", opacity: 0.8, padding: 0 }}>Çıkış Yap</button>
-                </div>
-            </div>
-
-            {/* Main Content */}
-            <div style={{ flex: 1, padding: "50px 20px", overflowY: "auto", display: "flex", flexDirection: "column", alignItems: "center" }}>
-
+        <>
+            <div style={{ flex: 1, padding: "50px 20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <div style={{ width: "100%", maxWidth: "1000px" }}>
                     <div style={{ marginBottom: "40px", textAlign: "center" }}>
                         <h1 style={{ fontSize: "32px", fontWeight: 700, color: "#333" }}>Hesap Ayarları</h1>
@@ -187,21 +159,19 @@ export default function ProfilePage() {
                         </div>
                     </form>
                 </div>
-
             </div>
 
-            <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateX(-10px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        @media (max-width: 1024px) {
-          form { padding: 25px !important; }
-          div[style*="grid-template-columns: repeat(4"] { grid-template-columns: 1fr 1fr !important; }
-          div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
-        </div>
+            <style jsx>{`
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateX(-10px); }
+                    to { opacity: 1; transform: translateX(0); }
+                }
+                @media (max-width: 1024px) {
+                    form { padding: 25px !important; }
+                    .stats-grid-mobile { grid-template-columns: 1fr !important; }
+                }
+            `}</style>
+        </>
     );
 }
 
@@ -229,19 +199,3 @@ const inputStyle: React.CSSProperties = {
     background: "#fff"
 };
 
-const navLink: React.CSSProperties = {
-    padding: "12px 15px",
-    borderRadius: "8px",
-    color: "white",
-    textDecoration: "none",
-    fontSize: "14px",
-    transition: "background 0.3s",
-    opacity: 0.8
-};
-
-const activeNavLink: React.CSSProperties = {
-    ...navLink,
-    background: "rgba(255,255,255,0.1)",
-    opacity: 1,
-    fontWeight: 700
-};

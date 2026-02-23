@@ -100,30 +100,10 @@ export default function FoodLibrary() {
     const filteredFoods = foods.filter(f => f.name && f.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
-        <div style={{ minHeight: "100vh", background: "#f4f7f4", display: "flex", fontFamily: "var(--font-body)" }}>
+        <>
+            <div style={{ flex: 1, padding: "50px", display: "flex", flexDirection: "column", position: "relative" }}>
 
-            {/* Admin Sidebar */}
-            <div style={{ width: "280px", background: "#2c3e50", color: "white", padding: "40px 30px", display: "flex", flexDirection: "column", gap: "40px" }}>
-                <div>
-                    <h2 style={{ fontSize: "22px", fontWeight: 800, color: "#79a33d" }}>Sümeyye Hanım</h2>
-                    <p style={{ fontSize: "12px", color: "#bdc3c7", marginTop: "5px" }}>Diyetisyen Admin Paneli</p>
-                </div>
 
-                <nav style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                    <Link href="/admin" style={navLink}>Genel Bakış</Link>
-                    <Link href="/admin/clients" style={navLink}>Danışan Yönetimi</Link>
-                    <Link href="/admin/food" style={activeNavLink}>Besin Kütüphanesi</Link>
-                    <Link href="/admin/appointments" style={navLink}>Randevu Takvimi</Link>
-                    <Link href="/admin/reports" style={navLink}>Raporlar</Link>
-                </nav>
-
-                <div style={{ marginTop: "auto" }}>
-                    <Link href="/" style={{ color: "#ecf0f1", textDecoration: "none", fontSize: "14px", opacity: 0.8 }}>Oturumu Kapat</Link>
-                </div>
-            </div>
-
-            {/* Main Content */}
-            <div style={{ flex: 1, padding: "50px", overflowY: "auto", position: "relative" }}>
 
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "40px" }}>
                     <div>
@@ -163,7 +143,7 @@ export default function FoodLibrary() {
                 </div>
 
                 {/* Food Table */}
-                <div style={{ background: "white", borderRadius: "20px", overflow: "hidden", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+                <div style={{ background: "white", borderRadius: "20px", overflowX: "auto", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
                     <table style={{ width: "100%", borderCollapse: "collapse" }}>
                         <thead style={{ background: "#fcfdfe" }}>
                             <tr style={{ textAlign: "left" }}>
@@ -231,7 +211,7 @@ export default function FoodLibrary() {
                     </div>
                 )}
             </div>
-        </div>
+        </>
     );
 }
 
@@ -261,21 +241,6 @@ const actionBtn: React.CSSProperties = {
     transition: "background 0.3s"
 };
 
-const navLink: React.CSSProperties = {
-    padding: "15px 20px",
-    borderRadius: "12px",
-    color: "#bdc3c7",
-    textDecoration: "none",
-    fontSize: "15px",
-    transition: "all 0.3s ease",
-};
-
-const activeNavLink: React.CSSProperties = {
-    ...navLink,
-    background: "#34495e",
-    color: "white",
-    fontWeight: 700
-};
 
 const inputStyle: React.CSSProperties = {
     width: "100%",

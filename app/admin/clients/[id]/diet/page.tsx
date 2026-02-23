@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { supabase } from "../../../../../utils/supabase";
+import { calculateCalories } from "../../../../../utils/calorieCalculator";
 
 export default function DietAssignmentPage() {
     const params = useParams();
@@ -18,10 +19,10 @@ export default function DietAssignmentPage() {
     const [diet, setDiet] = useState<any[]>([
         {
             day: 1,
-            breakfast: [{ food: "Haşlanmış Yumurta", portion: "2 adet", cal: 155 }],
-            lunch: [{ food: "Izgara Tavuk", portion: "150g", cal: 250 }],
-            dinner: [{ food: "Mevsim Salatası", portion: "1 kase", cal: 100 }],
-            snacks: [{ food: "Ceviz", portion: "3 tam", cal: 130 }]
+            breakfast: [],
+            lunch: [],
+            dinner: [],
+            snacks: []
         }
     ]);
 
@@ -118,6 +119,20 @@ export default function DietAssignmentPage() {
             if (dayIndex === activeDay) {
                 const newMealArr = [...((d as any)[meal] || [])];
                 newMealArr[index] = { ...newMealArr[index], [field]: value };
+
+                // If portion is updated, try to auto-calculate calories
+                if (field === "portion") {
+                    const currentFoodName = newMealArr[index].food;
+                    const baseFood = foods.find(f => f.name === currentFoodName);
+
+                    if (baseFood) {
+                        const calculatedCal = calculateCalories(String(value), baseFood);
+                        if (calculatedCal !== null) {
+                            newMealArr[index].cal = calculatedCal;
+                        }
+                    }
+                }
+
                 return { ...d, [meal]: newMealArr };
             }
             return d;
@@ -187,25 +202,10 @@ export default function DietAssignmentPage() {
     if (!client || !diet[activeDay]) return <div>Hata: Danışan bulunamadı.</div>;
 
     return (
-        <div style={{ minHeight: "100vh", background: "#f4f7f4", display: "flex", fontFamily: "var(--font-body)" }}>
+        <>
+            <div style={{ flex: 1, padding: "50px", display: "flex", flexDirection: "column" }}>
 
-            {/* Sidebar */}
-            <div style={{ width: "280px", background: "#2c3e50", color: "white", padding: "40px 30px", display: "flex", flexDirection: "column", gap: "40px" }}>
-                <h2 style={{ fontSize: "22px", fontWeight: 800, color: "#79a33d" }}>Sümeyye Hanım</h2>
-                <nav style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                    <Link href="/admin" style={navLink}>Genel Bakış</Link>
-                    <Link href="/admin/clients" style={activeNavLink}>Danışan Yönetimi</Link>
-                    <Link href="/admin/food" style={navLink}>Besin Kütüphanesi</Link>
-                    <Link href="/admin/appointments" style={navLink}>Randevu Takvimi</Link>
-                    <Link href="/admin/reports" style={navLink}>Raporlar</Link>
-                </nav>
-                <div style={{ marginTop: "auto" }}>
-                    <Link href="/" style={{ color: "#ecf0f1", textDecoration: "none", fontSize: "14px", opacity: 0.8 }}>Oturumu Kapat</Link>
-                </div>
-            </div>
 
-            {/* Main Content */}
-            <div style={{ flex: 1, padding: "50px", overflowY: "auto" }}>
                 <div style={{ marginBottom: "40px" }}>
                     <Link href="/admin/clients" style={{ color: "#79a33d", textDecoration: "none", fontSize: "14px", fontWeight: 700 }}>← Listeye Dön</Link>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "10px" }}>
@@ -364,7 +364,7 @@ export default function DietAssignmentPage() {
                 </datalist>
 
             </div>
-        </div>
+        </>
     );
 }
 
@@ -398,20 +398,4 @@ const saveBtn = {
     fontWeight: 700,
     cursor: "pointer",
     boxShadow: "0 10px 20px rgba(121, 163, 61, 0.2)"
-};
-
-const navLink: React.CSSProperties = {
-    padding: "15px 20px",
-    borderRadius: "12px",
-    color: "#bdc3c7",
-    textDecoration: "none",
-    fontSize: "15px",
-    transition: "all 0.3s ease",
-};
-
-const activeNavLink: React.CSSProperties = {
-    ...navLink,
-    background: "#34495e",
-    color: "white",
-    fontWeight: 700
 };

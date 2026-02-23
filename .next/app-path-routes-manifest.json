@@ -1,0 +1,18 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/admin/appointments/page": "/admin/appointments",
+  "/admin/clients/[id]/diet/page": "/admin/clients/[id]/diet",
+  "/admin/clients/page": "/admin/clients",
+  "/admin/food/page": "/admin/food",
+  "/admin/page": "/admin",
+  "/admin/reports/page": "/admin/reports",
+  "/dashboard/menu/page": "/dashboard/menu",
+  "/dashboard/page": "/dashboard",
+  "/dashboard/profile/page": "/dashboard/profile",
+  "/dashboard/progress/page": "/dashboard/progress",
+  "/favicon.ico/route": "/favicon.ico",
+  "/login/page": "/login",
+  "/page": "/",
+  "/register/page": "/register"
+}

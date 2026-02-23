@@ -3179,8 +3179,7 @@ function AppointmentSection() {
                                         fontWeight: 600,
                                         letterSpacing: "1px",
                                         textTransform: "uppercase",
-                                        marginBottom: "20px",
-                                        display: "block"
+                                        marginBottom: "20px"
                                     },
                                     children: "Randevu"
                                 }, void 0, false, {
@@ -3201,7 +3200,7 @@ function AppointmentSection() {
                                         "İlk Görüşme ",
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                             fileName: "[project]/app/components/AppointmentSection.tsx",
-                                            lineNumber: 101,
+                                            lineNumber: 100,
                                             columnNumber: 41
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3211,13 +3210,13 @@ function AppointmentSection() {
                                             children: "Ücretsiz!"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/AppointmentSection.tsx",
-                                            lineNumber: 102,
+                                            lineNumber: 101,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/AppointmentSection.tsx",
-                                    lineNumber: 91,
+                                    lineNumber: 90,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3231,7 +3230,7 @@ function AppointmentSection() {
                                     children: "Hemen randevu alın, uzman diyetisyenimiz sizi arasın. İlk görüşmeniz tamamen ücretsiz ve bağlayıcı değildir."
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/AppointmentSection.tsx",
-                                    lineNumber: 104,
+                                    lineNumber: 103,
                                     columnNumber: 25
                                 }, this),
                                 [
@@ -3278,7 +3277,7 @@ function AppointmentSection() {
                                                 children: c.icon
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                lineNumber: 132,
+                                                lineNumber: 131,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3293,7 +3292,7 @@ function AppointmentSection() {
                                                         children: c.title
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                        lineNumber: 144,
+                                                        lineNumber: 143,
                                                         columnNumber: 37
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3306,19 +3305,19 @@ function AppointmentSection() {
                                                         children: c.value
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                        lineNumber: 145,
+                                                        lineNumber: 144,
                                                         columnNumber: 37
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                lineNumber: 143,
+                                                lineNumber: 142,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, c.title, true, {
                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                        lineNumber: 123,
+                                        lineNumber: 122,
                                         columnNumber: 29
                                     }, this))
                             ]
@@ -3349,7 +3348,7 @@ function AppointmentSection() {
                                         children: "✅"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                        lineNumber: 163,
+                                        lineNumber: 162,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -3363,7 +3362,7 @@ function AppointmentSection() {
                                         children: "Randevu Talebiniz Alındı!"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                        lineNumber: 164,
+                                        lineNumber: 163,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3375,13 +3374,13 @@ function AppointmentSection() {
                                         children: "En kısa sürede sizi arayacağız. Teşekkürler!"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                        lineNumber: 167,
+                                        lineNumber: 166,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/AppointmentSection.tsx",
-                                lineNumber: 162,
+                                lineNumber: 161,
                                 columnNumber: 29
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                                 onSubmit: handleSubmit,
@@ -3397,7 +3396,7 @@ function AppointmentSection() {
                                         children: "Randevu Formu"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                        lineNumber: 173,
+                                        lineNumber: 172,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3422,7 +3421,7 @@ function AppointmentSection() {
                                                         children: "Ad Soyad *"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                        lineNumber: 179,
+                                                        lineNumber: 178,
                                                         columnNumber: 41
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -3437,13 +3436,13 @@ function AppointmentSection() {
                                                         style: inputStyle
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                        lineNumber: 180,
+                                                        lineNumber: 179,
                                                         columnNumber: 41
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                lineNumber: 178,
+                                                lineNumber: 177,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3459,7 +3458,7 @@ function AppointmentSection() {
                                                         children: "Telefon *"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                        lineNumber: 190,
+                                                        lineNumber: 189,
                                                         columnNumber: 41
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -3474,19 +3473,19 @@ function AppointmentSection() {
                                                         style: inputStyle
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                        lineNumber: 191,
+                                                        lineNumber: 190,
                                                         columnNumber: 41
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                lineNumber: 189,
+                                                lineNumber: 188,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                        lineNumber: 177,
+                                        lineNumber: 176,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3505,7 +3504,7 @@ function AppointmentSection() {
                                                 children: "E-posta"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                lineNumber: 203,
+                                                lineNumber: 202,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -3519,13 +3518,13 @@ function AppointmentSection() {
                                                 style: inputStyle
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                lineNumber: 204,
+                                                lineNumber: 203,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                        lineNumber: 202,
+                                        lineNumber: 201,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3550,7 +3549,7 @@ function AppointmentSection() {
                                                         children: "Hizmet *"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                        lineNumber: 215,
+                                                        lineNumber: 214,
                                                         columnNumber: 41
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -3573,7 +3572,7 @@ function AppointmentSection() {
                                                                 children: "Seçin..."
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                                lineNumber: 222,
+                                                                lineNumber: 221,
                                                                 columnNumber: 45
                                                             }, this),
                                                             services.map((s)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3584,19 +3583,19 @@ function AppointmentSection() {
                                                                     children: s
                                                                 }, s, false, {
                                                                     fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                                    lineNumber: 224,
+                                                                    lineNumber: 223,
                                                                     columnNumber: 49
                                                                 }, this))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                        lineNumber: 216,
+                                                        lineNumber: 215,
                                                         columnNumber: 41
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                lineNumber: 214,
+                                                lineNumber: 213,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3612,7 +3611,7 @@ function AppointmentSection() {
                                                         children: "Tarih Tercihi"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                        lineNumber: 229,
+                                                        lineNumber: 228,
                                                         columnNumber: 41
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -3625,19 +3624,19 @@ function AppointmentSection() {
                                                         style: inputStyle
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                        lineNumber: 230,
+                                                        lineNumber: 229,
                                                         columnNumber: 41
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                lineNumber: 228,
+                                                lineNumber: 227,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                        lineNumber: 213,
+                                        lineNumber: 212,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3656,7 +3655,7 @@ function AppointmentSection() {
                                                 children: "Mesajınız"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                lineNumber: 240,
+                                                lineNumber: 239,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -3674,13 +3673,13 @@ function AppointmentSection() {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/AppointmentSection.tsx",
-                                                lineNumber: 241,
+                                                lineNumber: 240,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                        lineNumber: 239,
+                                        lineNumber: 238,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3706,18 +3705,18 @@ function AppointmentSection() {
                                         children: "📅 Ücretsiz Randevu Al"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/AppointmentSection.tsx",
-                                        lineNumber: 250,
+                                        lineNumber: 249,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/AppointmentSection.tsx",
-                                lineNumber: 172,
+                                lineNumber: 171,
                                 columnNumber: 29
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/components/AppointmentSection.tsx",
-                            lineNumber: 152,
+                            lineNumber: 151,
                             columnNumber: 21
                         }, this)
                     ]
@@ -3743,7 +3742,7 @@ function AppointmentSection() {
       `
             }, void 0, false, {
                 fileName: "[project]/app/components/AppointmentSection.tsx",
-                lineNumber: 279,
+                lineNumber: 278,
                 columnNumber: 13
             }, this)
         ]

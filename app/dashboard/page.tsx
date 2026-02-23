@@ -2,7 +2,6 @@
 
 // No strict change here. Just fulfilling tool expectations. 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "../../utils/supabase";
 
@@ -123,113 +122,68 @@ export default function DashboardPage() {
     const bmiStatus = getBmiStatus(parseFloat(bmi));
 
     return (
-        <div style={{ minHeight: "100vh", background: "#f9faf5", display: "flex", fontFamily: "var(--font-body)" }}>
+        <div style={{ flex: 1, padding: "40px", display: "flex", flexDirection: "column" }}>
 
-            {/* Mini Sidebar */}
-            <div style={{ width: "260px", background: "#3d5a2d", color: "white", padding: "30px", display: "flex", flexDirection: "column", gap: "40px" }} className="sidebar">
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "40px" }}>
                 <div>
-                    <h2 style={{ fontSize: "20px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "1px" }}>Sümeyye Gencal</h2>
-                    <p style={{ fontSize: "12px", opacity: 0.7, marginTop: "5px" }}>Danışan Paneli</p>
+                    <h1 style={{ fontSize: "28px", color: "#333", fontWeight: 700 }}>Hoş geldin, {user.name}!</h1>
+                    <p style={{ color: "#666" }}>Bugün sağlıklı seçimler yapmak için harika bir gün.</p>
                 </div>
-
-                <nav style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                    <Link href="/dashboard" style={activeNavLink}>Özet ve Analiz</Link>
-                    <Link href="/dashboard/menu" style={navLink}>Diyet Listem</Link>
-                    <Link href="/dashboard/profile" style={navLink}>Profilim</Link>
-                    <Link href="/dashboard/progress" style={navLink}>Gelişim Grafiği</Link>
-                    <Link href="#" style={navLink}>Ayarlar</Link>
-                </nav>
-
-                <div style={{ marginTop: "auto" }}>
-                    <button onClick={() => { localStorage.removeItem("currentUser"); router.push("/"); }} style={{ background: "none", border: "none", color: "white", cursor: "pointer", fontSize: "14px", opacity: 0.8, padding: 0 }}>Çıkış Yap</button>
+                <div style={{ textAlign: "right" }}>
+                    <div style={{ fontSize: "14px", color: "#888" }}>Tarih</div>
+                    <div style={{ fontWeight: 600, color: "#333" }}>21 Şubat 2026</div>
                 </div>
             </div>
 
-            {/* Main Content */}
-            <div style={{ flex: 1, padding: "40px", overflowY: "auto" }}>
+            {/* Info Cards Grid */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "25px", marginBottom: "40px" }} className="stats-grid">
 
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "40px" }}>
-                    <div>
-                        <h1 style={{ fontSize: "28px", color: "#333", fontWeight: 700 }}>Hoş geldin, {user.name}!</h1>
-                        <p style={{ color: "#666" }}>Bugün sağlıklı seçimler yapmak için harika bir gün.</p>
-                    </div>
-                    <div style={{ textAlign: "right" }}>
-                        <div style={{ fontSize: "14px", color: "#888" }}>Tarih</div>
-                        <div style={{ fontWeight: 600, color: "#333" }}>21 Şubat 2026</div>
+                {/* Card: BMI */}
+                <div style={statCard}>
+                    <div style={{ fontSize: "14px", color: "#888", marginBottom: "5px" }}>Vücut Kitle İndeksi (VKI)</div>
+                    <div style={{ display: "flex", alignItems: "baseline", gap: "10px" }}>
+                        <span style={{ fontSize: "32px", fontWeight: 800, color: "#333" }}>{bmi}</span>
+                        <span style={{
+                            fontSize: "12px",
+                            padding: "4px 8px",
+                            borderRadius: "20px",
+                            background: bmiStatus.color + "22",
+                            color: bmiStatus.color,
+                            fontWeight: 700
+                        }}>
+                            {bmiStatus.text}
+                        </span>
                     </div>
                 </div>
 
-                {/* Info Cards Grid */}
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "25px", marginBottom: "40px" }} className="stats-grid">
-
-                    {/* Card: BMI */}
-                    <div style={statCard}>
-                        <div style={{ fontSize: "14px", color: "#888", marginBottom: "5px" }}>Vücut Kitle İndeksi (VKI)</div>
-                        <div style={{ display: "flex", alignItems: "baseline", gap: "10px" }}>
-                            <span style={{ fontSize: "32px", fontWeight: 800, color: "#333" }}>{bmi}</span>
-                            <span style={{
-                                fontSize: "12px",
-                                padding: "4px 8px",
-                                borderRadius: "20px",
-                                background: bmiStatus.color + "22",
-                                color: bmiStatus.color,
-                                fontWeight: 700
-                            }}>
-                                {bmiStatus.text}
-                            </span>
-                        </div>
+                {/* Card: BMR */}
+                <div style={statCard}>
+                    <div style={{ fontSize: "14px", color: "#888", marginBottom: "5px" }}>Bazal Metabolizma Hızı (BMH)</div>
+                    <div style={{ display: "flex", alignItems: "baseline", gap: "5px" }}>
+                        <span style={{ fontSize: "32px", fontWeight: 800, color: "#333" }}>{bmr}</span>
+                        <span style={{ fontSize: "14px", color: "#666" }}>kcal/gün</span>
                     </div>
+                </div>
 
-                    {/* Card: BMR */}
-                    <div style={statCard}>
-                        <div style={{ fontSize: "14px", color: "#888", marginBottom: "5px" }}>Bazal Metabolizma Hızı (BMH)</div>
-                        <div style={{ display: "flex", alignItems: "baseline", gap: "5px" }}>
-                            <span style={{ fontSize: "32px", fontWeight: 800, color: "#333" }}>{bmr}</span>
-                            <span style={{ fontSize: "14px", color: "#666" }}>kcal/gün</span>
-                        </div>
+                {/* Card: Progress */}
+                <div style={statCard}>
+                    <div style={{ fontSize: "14px", color: "#888", marginBottom: "5px" }}>Hedefe Kalan</div>
+                    <div style={{ display: "flex", alignItems: "baseline", gap: "5px" }}>
+                        <span style={{ fontSize: "32px", fontWeight: 800, color: "#79a33d" }}>{user.weight - user.targetWeight}</span>
+                        <span style={{ fontSize: "14px", color: "#666" }}>kg</span>
                     </div>
-
-                    {/* Card: Progress */}
-                    <div style={statCard}>
-                        <div style={{ fontSize: "14px", color: "#888", marginBottom: "5px" }}>Hedefe Kalan</div>
-                        <div style={{ display: "flex", alignItems: "baseline", gap: "5px" }}>
-                            <span style={{ fontSize: "32px", fontWeight: 800, color: "#79a33d" }}>{user.weight - user.targetWeight}</span>
-                            <span style={{ fontSize: "14px", color: "#666" }}>kg</span>
-                        </div>
-                    </div>
-
                 </div>
 
             </div>
 
-            <style>{`
-        @media (max-width: 1024px) {
-          .stats-grid { grid-template-columns: 1fr !important; }
-          .sidebar { width: 80px !important; padding: 20px !important; }
-          .sidebar h2, .sidebar p, .sidebar nav a { font-size: 0 !important; }
-          .sidebar nav a::before { font-size: 20px !important; margin: 0 !important; }
-        }
-      `}</style>
+            <style jsx>{`
+                @media (max-width: 1024px) {
+                    .stats-grid { grid-template-columns: 1fr !important; }
+                }
+            `}</style>
         </div>
     );
 }
-
-const navLink: React.CSSProperties = {
-    padding: "12px 15px",
-    borderRadius: "8px",
-    color: "white",
-    textDecoration: "none",
-    fontSize: "14px",
-    transition: "background 0.3s",
-    opacity: 0.8
-};
-
-const activeNavLink: React.CSSProperties = {
-    ...navLink,
-    background: "rgba(255,255,255,0.1)",
-    opacity: 1,
-    fontWeight: 700
-};
 
 const statCard: React.CSSProperties = {
     background: "white",

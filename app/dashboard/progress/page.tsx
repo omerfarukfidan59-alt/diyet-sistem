@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "../../../utils/supabase";
 
@@ -162,30 +161,8 @@ export default function ProgressPage() {
     }).join(" ");
 
     return (
-        <div style={{ minHeight: "100vh", background: "#f9faf5", display: "flex", fontFamily: "var(--font-body)" }}>
-
-            {/* Sidebar */}
-            <div style={{ width: "260px", background: "#3d5a2d", color: "white", padding: "30px", display: "flex", flexDirection: "column", gap: "40px" }}>
-                <div>
-                    <h2 style={{ fontSize: "20px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "1px" }}>{user.name}</h2>
-                    <p style={{ fontSize: "12px", opacity: 0.7, marginTop: "5px" }}>Danışan Paneli</p>
-                </div>
-
-                <nav style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                    <Link href="/dashboard" style={navLink}>Özet ve Analiz</Link>
-                    <Link href="/dashboard/menu" style={navLink}>Diyet Listem</Link>
-                    <Link href="/dashboard/profile" style={navLink}>Profilim</Link>
-                    <Link href="/dashboard/progress" style={activeNavLink}>Gelişim Grafiği</Link>
-                    <Link href="#" style={navLink}>Ayarlar</Link>
-                </nav>
-
-                <div style={{ marginTop: "auto" }}>
-                    <button onClick={handleLogout} style={{ background: "none", border: "none", color: "white", cursor: "pointer", fontSize: "14px", opacity: 0.8, padding: 0 }}>Çıkış Yap</button>
-                </div>
-            </div>
-
-            {/* Main Content */}
-            <div style={{ flex: 1, padding: "50px 40px", overflowY: "auto", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <>
+            <div style={{ flex: 1, padding: "50px 40px", display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <div style={{ width: "100%", maxWidth: "1000px" }}>
 
                     <div style={{ marginBottom: "40px" }}>
@@ -349,7 +326,7 @@ export default function ProgressPage() {
                 }
             }
             `}</style>
-        </div>
+        </>
     );
 }
 
@@ -379,19 +356,3 @@ const statValue: React.CSSProperties = {
     color: "#2c3e50"
 };
 
-const navLink: React.CSSProperties = {
-    padding: "12px 15px",
-    borderRadius: "8px",
-    color: "white",
-    textDecoration: "none",
-    fontSize: "14px",
-    transition: "background 0.3s",
-    opacity: 0.8
-};
-
-const activeNavLink: React.CSSProperties = {
-    ...navLink,
-    background: "rgba(255,255,255,0.1)",
-    opacity: 1,
-    fontWeight: 700
-};

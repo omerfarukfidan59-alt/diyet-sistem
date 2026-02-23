@@ -1,8 +1,10 @@
 {
+  "/admin/appointments/page": "app/admin/appointments/page.js",
   "/admin/clients/[id]/diet/page": "app/admin/clients/[id]/diet/page.js",
   "/admin/clients/page": "app/admin/clients/page.js",
   "/admin/food/page": "app/admin/food/page.js",
   "/admin/page": "app/admin/page.js",
+  "/admin/reports/page": "app/admin/reports/page.js",
   "/dashboard/menu/page": "app/dashboard/menu/page.js",
   "/dashboard/page": "app/dashboard/page.js",
   "/dashboard/profile/page": "app/dashboard/profile/page.js",

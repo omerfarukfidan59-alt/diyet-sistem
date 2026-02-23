@@ -25,13 +25,11 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$utils$2f$supabase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/utils/supabase.ts [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
-;
 ;
 ;
 ;
@@ -152,7 +150,7 @@ function ProgressPage() {
         children: "Yükleniyor..."
     }, void 0, false, {
         fileName: "[project]/app/dashboard/progress/page.tsx",
-        lineNumber: 131,
+        lineNumber: 130,
         columnNumber: 25
     }, this);
     if (!user) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -165,7 +163,7 @@ function ProgressPage() {
         children: "Yükleniyor..."
     }, void 0, false, {
         fileName: "[project]/app/dashboard/progress/page.tsx",
-        lineNumber: 132,
+        lineNumber: 131,
         columnNumber: 23
     }, this);
     // --- CHART LOGIC ---
@@ -192,153 +190,12 @@ function ProgressPage() {
         const y = getY(log.weight);
         return `${index === 0 ? 'M' : 'L'} ${x} ${y}`;
     }).join(" ");
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        style: {
-            minHeight: "100vh",
-            background: "#f9faf5",
-            display: "flex",
-            fontFamily: "var(--font-body)"
-        },
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                style: {
-                    width: "260px",
-                    background: "#3d5a2d",
-                    color: "white",
-                    padding: "30px",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "40px"
-                },
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                style: {
-                                    fontSize: "20px",
-                                    fontWeight: 800,
-                                    textTransform: "uppercase",
-                                    letterSpacing: "1px"
-                                },
-                                children: user.name
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/progress/page.tsx",
-                                lineNumber: 170,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                style: {
-                                    fontSize: "12px",
-                                    opacity: 0.7,
-                                    marginTop: "5px"
-                                },
-                                children: "Danışan Paneli"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/progress/page.tsx",
-                                lineNumber: 171,
-                                columnNumber: 21
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/dashboard/progress/page.tsx",
-                        lineNumber: 169,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                        style: {
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: "10px"
-                        },
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/dashboard",
-                                style: navLink,
-                                children: "Özet ve Analiz"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/progress/page.tsx",
-                                lineNumber: 175,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/dashboard/menu",
-                                style: navLink,
-                                children: "Diyet Listem"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/progress/page.tsx",
-                                lineNumber: 176,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/dashboard/profile",
-                                style: navLink,
-                                children: "Profilim"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/progress/page.tsx",
-                                lineNumber: 177,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/dashboard/progress",
-                                style: activeNavLink,
-                                children: "Gelişim Grafiği"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/progress/page.tsx",
-                                lineNumber: 178,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "#",
-                                style: navLink,
-                                children: "Ayarlar"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/progress/page.tsx",
-                                lineNumber: 179,
-                                columnNumber: 21
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/dashboard/progress/page.tsx",
-                        lineNumber: 174,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        style: {
-                            marginTop: "auto"
-                        },
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                            onClick: handleLogout,
-                            style: {
-                                background: "none",
-                                border: "none",
-                                color: "white",
-                                cursor: "pointer",
-                                fontSize: "14px",
-                                opacity: 0.8,
-                                padding: 0
-                            },
-                            children: "Çıkış Yap"
-                        }, void 0, false, {
-                            fileName: "[project]/app/dashboard/progress/page.tsx",
-                            lineNumber: 183,
-                            columnNumber: 21
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/app/dashboard/progress/page.tsx",
-                        lineNumber: 182,
-                        columnNumber: 17
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/app/dashboard/progress/page.tsx",
-                lineNumber: 168,
-                columnNumber: 13
-            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
                     flex: 1,
                     padding: "50px 40px",
-                    overflowY: "auto",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center"
@@ -364,7 +221,7 @@ function ProgressPage() {
                                     children: "Gelişim Grafiği"
                                 }, void 0, false, {
                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                    lineNumber: 192,
+                                    lineNumber: 169,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -374,13 +231,13 @@ function ProgressPage() {
                                     children: "Zaman içindeki kilo değişiminizi ve hedefinize olan uzaklığınızı buradan takip edebilirsiniz."
                                 }, void 0, false, {
                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                    lineNumber: 193,
+                                    lineNumber: 170,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                            lineNumber: 191,
+                            lineNumber: 168,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -400,7 +257,7 @@ function ProgressPage() {
                                             children: "Güncel Kilo"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                            lineNumber: 199,
+                                            lineNumber: 176,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -416,19 +273,19 @@ function ProgressPage() {
                                                     children: "kg"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                    lineNumber: 200,
+                                                    lineNumber: 177,
                                                     columnNumber: 66
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                            lineNumber: 200,
+                                            lineNumber: 177,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                    lineNumber: 198,
+                                    lineNumber: 175,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -439,7 +296,7 @@ function ProgressPage() {
                                             children: "Hedef Kilo"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                            lineNumber: 203,
+                                            lineNumber: 180,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -455,19 +312,19 @@ function ProgressPage() {
                                                     children: "kg"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                    lineNumber: 204,
+                                                    lineNumber: 181,
                                                     columnNumber: 67
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                            lineNumber: 204,
+                                            lineNumber: 181,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                    lineNumber: 202,
+                                    lineNumber: 179,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -485,7 +342,7 @@ function ProgressPage() {
                                             children: "Kalan Yol"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                            lineNumber: 207,
+                                            lineNumber: 184,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -504,25 +361,25 @@ function ProgressPage() {
                                                     children: "kg"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                    lineNumber: 209,
+                                                    lineNumber: 186,
                                                     columnNumber: 91
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                            lineNumber: 208,
+                                            lineNumber: 185,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                    lineNumber: 206,
+                                    lineNumber: 183,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                            lineNumber: 197,
+                            lineNumber: 174,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -552,7 +409,7 @@ function ProgressPage() {
                                             children: "Kilo Değişim Grafiği"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                            lineNumber: 217,
+                                            lineNumber: 194,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -564,13 +421,13 @@ function ProgressPage() {
                                             children: "Dikey: Kilo (kg) | Yatay: Tarih (Gün)"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                            lineNumber: 218,
+                                            lineNumber: 195,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                    lineNumber: 216,
+                                    lineNumber: 193,
                                     columnNumber: 25
                                 }, this),
                                 weightLogs.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -595,7 +452,7 @@ function ProgressPage() {
                                                 strokeWidth: "2"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                lineNumber: 226,
+                                                lineNumber: 203,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
@@ -608,7 +465,7 @@ function ProgressPage() {
                                                 children: "Kilo (kg)"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                lineNumber: 227,
+                                                lineNumber: 204,
                                                 columnNumber: 37
                                             }, this),
                                             [
@@ -631,7 +488,7 @@ function ProgressPage() {
                                                             strokeWidth: "1"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                            lineNumber: 234,
+                                                            lineNumber: 211,
                                                             columnNumber: 49
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
@@ -643,13 +500,13 @@ function ProgressPage() {
                                                             children: labelWeight.toFixed(1)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                            lineNumber: 235,
+                                                            lineNumber: 212,
                                                             columnNumber: 49
                                                         }, this)
                                                     ]
                                                 }, i, true, {
                                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                    lineNumber: 233,
+                                                    lineNumber: 210,
                                                     columnNumber: 45
                                                 }, this);
                                             }),
@@ -662,7 +519,7 @@ function ProgressPage() {
                                                 strokeWidth: "2"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                lineNumber: 241,
+                                                lineNumber: 218,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
@@ -675,7 +532,7 @@ function ProgressPage() {
                                                 children: "Gün"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                lineNumber: 242,
+                                                lineNumber: 219,
                                                 columnNumber: 37
                                             }, this),
                                             targetWeight > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
@@ -690,7 +547,7 @@ function ProgressPage() {
                                                         strokeDasharray: "5,5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                        lineNumber: 247,
+                                                        lineNumber: 224,
                                                         columnNumber: 45
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
@@ -706,13 +563,13 @@ function ProgressPage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                        lineNumber: 248,
+                                                        lineNumber: 225,
                                                         columnNumber: 45
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                lineNumber: 246,
+                                                lineNumber: 223,
                                                 columnNumber: 41
                                             }, this),
                                             weightLogs.length > 1 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -724,7 +581,7 @@ function ProgressPage() {
                                                 strokeLinejoin: "round"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                lineNumber: 254,
+                                                lineNumber: 231,
                                                 columnNumber: 41
                                             }, this) : weightLogs.length === 1 && /* If only 1 point exists, draw a flat dotted line backwards to show history start */ /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
                                                 x1: padding,
@@ -737,7 +594,7 @@ function ProgressPage() {
                                                 opacity: 0.3
                                             }, void 0, false, {
                                                 fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                lineNumber: 257,
+                                                lineNumber: 234,
                                                 columnNumber: 41
                                             }, this),
                                             weightLogs.map((log, index)=>{
@@ -754,7 +611,7 @@ function ProgressPage() {
                                                             strokeWidth: "2"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                            lineNumber: 267,
+                                                            lineNumber: 244,
                                                             columnNumber: 49
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -767,7 +624,7 @@ function ProgressPage() {
                                                             opacity: "0.5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                            lineNumber: 268,
+                                                            lineNumber: 245,
                                                             columnNumber: 49
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
@@ -783,7 +640,7 @@ function ProgressPage() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                            lineNumber: 269,
+                                                            lineNumber: 246,
                                                             columnNumber: 49
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
@@ -795,7 +652,7 @@ function ProgressPage() {
                                                             strokeWidth: "2"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                            lineNumber: 272,
+                                                            lineNumber: 249,
                                                             columnNumber: 49
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
@@ -810,25 +667,25 @@ function ProgressPage() {
                                                             })
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                            lineNumber: 273,
+                                                            lineNumber: 250,
                                                             columnNumber: 49
                                                         }, this)
                                                     ]
                                                 }, index, true, {
                                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                    lineNumber: 265,
+                                                    lineNumber: 242,
                                                     columnNumber: 45
                                                 }, this);
                                             })
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/dashboard/progress/page.tsx",
-                                        lineNumber: 223,
+                                        lineNumber: 200,
                                         columnNumber: 33
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                    lineNumber: 222,
+                                    lineNumber: 199,
                                     columnNumber: 29
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     style: {
@@ -839,13 +696,13 @@ function ProgressPage() {
                                     children: "Henüz yeterli kilo verisi girilmedi."
                                 }, void 0, false, {
                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                    lineNumber: 280,
+                                    lineNumber: 257,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                            lineNumber: 215,
+                            lineNumber: 192,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -866,7 +723,7 @@ function ProgressPage() {
                                     children: "Yeni Tartım Ekle"
                                 }, void 0, false, {
                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                    lineNumber: 286,
+                                    lineNumber: 263,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -896,7 +753,7 @@ function ProgressPage() {
                                                     children: "Tarih Seçimi"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                    lineNumber: 290,
+                                                    lineNumber: 267,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -914,13 +771,13 @@ function ProgressPage() {
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                    lineNumber: 291,
+                                                    lineNumber: 268,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                            lineNumber: 289,
+                                            lineNumber: 266,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -941,7 +798,7 @@ function ProgressPage() {
                                                     children: "Kilonuz (kg)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                    lineNumber: 308,
+                                                    lineNumber: 285,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -960,13 +817,13 @@ function ProgressPage() {
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                                    lineNumber: 309,
+                                                    lineNumber: 286,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                            lineNumber: 307,
+                                            lineNumber: 284,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -985,30 +842,30 @@ function ProgressPage() {
                                             children: "++ Ekle"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                                            lineNumber: 326,
+                                            lineNumber: 303,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                                    lineNumber: 287,
+                                    lineNumber: 264,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/dashboard/progress/page.tsx",
-                            lineNumber: 285,
+                            lineNumber: 262,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/dashboard/progress/page.tsx",
-                    lineNumber: 189,
+                    lineNumber: 166,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/dashboard/progress/page.tsx",
-                lineNumber: 188,
+                lineNumber: 165,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
@@ -1021,15 +878,11 @@ function ProgressPage() {
             `
             }, void 0, false, {
                 fileName: "[project]/app/dashboard/progress/page.tsx",
-                lineNumber: 345,
+                lineNumber: 322,
                 columnNumber: 13
             }, this)
         ]
-    }, void 0, true, {
-        fileName: "[project]/app/dashboard/progress/page.tsx",
-        lineNumber: 165,
-        columnNumber: 9
-    }, this);
+    }, void 0, true);
 }
 _s(ProgressPage, "CX7dCJ0aTfFBqUEbZI/J29rGgvg=", false, function() {
     return [
@@ -1059,21 +912,6 @@ const statValue = {
     fontSize: "36px",
     fontWeight: 800,
     color: "#2c3e50"
-};
-const navLink = {
-    padding: "12px 15px",
-    borderRadius: "8px",
-    color: "white",
-    textDecoration: "none",
-    fontSize: "14px",
-    transition: "background 0.3s",
-    opacity: 0.8
-};
-const activeNavLink = {
-    ...navLink,
-    background: "rgba(255,255,255,0.1)",
-    opacity: 1,
-    fontWeight: 700
 };
 var _c;
 __turbopack_context__.k.register(_c, "ProgressPage");

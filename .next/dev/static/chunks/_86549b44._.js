@@ -24,8 +24,8 @@ __turbopack_context__.s([
     ()=>ProfilePage
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$utils$2f$supabase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/utils/supabase.ts [app-client] (ecmascript)");
 ;
@@ -109,172 +109,30 @@ function ProfilePage() {
         setLoading(false);
         setTimeout(()=>setSaved(false), 3000);
     };
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        style: {
-            minHeight: "100vh",
-            background: "#f9faf5",
-            display: "flex",
-            fontFamily: "var(--font-body)"
-        },
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                style: {
-                    width: "260px",
-                    background: "#3d5a2d",
-                    color: "white",
-                    padding: "30px",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "40px"
-                },
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                style: {
-                                    fontSize: "20px",
-                                    fontWeight: 800,
-                                    textTransform: "uppercase",
-                                    letterSpacing: "1px"
-                                },
-                                children: "Sümeyye Gencal"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/profile/page.tsx",
-                                lineNumber: 101,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                style: {
-                                    fontSize: "12px",
-                                    opacity: 0.7,
-                                    marginTop: "5px"
-                                },
-                                children: "Danışan Paneli"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/profile/page.tsx",
-                                lineNumber: 102,
-                                columnNumber: 21
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/dashboard/profile/page.tsx",
-                        lineNumber: 100,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                        style: {
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: "10px"
-                        },
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/dashboard",
-                                style: navLink,
-                                children: "Özet ve Analiz"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/profile/page.tsx",
-                                lineNumber: 106,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/dashboard/menu",
-                                style: navLink,
-                                children: "Diyet Listem"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/profile/page.tsx",
-                                lineNumber: 107,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/dashboard/profile",
-                                style: activeNavLink,
-                                children: "Profilim"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/profile/page.tsx",
-                                lineNumber: 108,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/dashboard/progress",
-                                style: navLink,
-                                children: "Gelişim Grafiği"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/profile/page.tsx",
-                                lineNumber: 109,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "#",
-                                style: navLink,
-                                children: "Ayarlar"
-                            }, void 0, false, {
-                                fileName: "[project]/app/dashboard/profile/page.tsx",
-                                lineNumber: 110,
-                                columnNumber: 21
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/dashboard/profile/page.tsx",
-                        lineNumber: 105,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        style: {
-                            marginTop: "auto"
-                        },
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                            onClick: async ()=>{
-                                await __TURBOPACK__imported__module__$5b$project$5d2f$utils$2f$supabase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["supabase"].auth.signOut();
-                                localStorage.removeItem("currentUser");
-                                router.push("/");
-                            },
-                            style: {
-                                background: "none",
-                                border: "none",
-                                color: "white",
-                                cursor: "pointer",
-                                fontSize: "14px",
-                                opacity: 0.8,
-                                padding: 0
-                            },
-                            children: "Çıkış Yap"
-                        }, void 0, false, {
-                            fileName: "[project]/app/dashboard/profile/page.tsx",
-                            lineNumber: 114,
-                            columnNumber: 21
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/app/dashboard/profile/page.tsx",
-                        lineNumber: 113,
-                        columnNumber: 17
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/app/dashboard/profile/page.tsx",
-                lineNumber: 99,
-                columnNumber: 13
-            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
                     flex: 1,
                     padding: "50px 20px",
-                    overflowY: "auto",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center"
                 },
+                className: "jsx-db6c78c1d7655094",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     style: {
                         width: "100%",
                         maxWidth: "1000px"
                     },
+                    className: "jsx-db6c78c1d7655094",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             style: {
                                 marginBottom: "40px",
                                 textAlign: "center"
                             },
+                            className: "jsx-db6c78c1d7655094",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                                     style: {
@@ -282,26 +140,28 @@ function ProfilePage() {
                                         fontWeight: 700,
                                         color: "#333"
                                     },
+                                    className: "jsx-db6c78c1d7655094",
                                     children: "Hesap Ayarları"
                                 }, void 0, false, {
                                     fileName: "[project]/app/dashboard/profile/page.tsx",
-                                    lineNumber: 127,
+                                    lineNumber: 99,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     style: {
                                         color: "#666"
                                     },
+                                    className: "jsx-db6c78c1d7655094",
                                     children: "Profil bilgilerinizi ve fiziksel verilerinizi dilediğiniz zaman güncelleyebilirsiniz."
                                 }, void 0, false, {
                                     fileName: "[project]/app/dashboard/profile/page.tsx",
-                                    lineNumber: 128,
+                                    lineNumber: 100,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/dashboard/profile/page.tsx",
-                            lineNumber: 126,
+                            lineNumber: 98,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -316,27 +176,30 @@ function ProfilePage() {
                                 gap: "30px",
                                 width: "100%"
                             },
+                            className: "jsx-db6c78c1d7655094",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     style: {
                                         borderBottom: "1px solid #f0f0f0",
                                         paddingBottom: "15px"
                                     },
+                                    className: "jsx-db6c78c1d7655094",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                         style: {
                                             fontSize: "18px",
                                             fontWeight: 700,
                                             color: "#3d5a2d"
                                         },
+                                        className: "jsx-db6c78c1d7655094",
                                         children: "Vücut Verilerini Güncelle"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/profile/page.tsx",
-                                        lineNumber: 134,
+                                        lineNumber: 106,
                                         columnNumber: 29
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/dashboard/profile/page.tsx",
-                                    lineNumber: 133,
+                                    lineNumber: 105,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -346,17 +209,19 @@ function ProfilePage() {
                                         gap: "25px",
                                         width: "100%"
                                     },
-                                    className: "stats-grid-mobile",
+                                    className: "jsx-db6c78c1d7655094" + " " + "stats-grid-mobile",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             style: inputGroup,
+                                            className: "jsx-db6c78c1d7655094",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                     style: labelStyle,
+                                                    className: "jsx-db6c78c1d7655094",
                                                     children: "Boy (cm)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/profile/page.tsx",
-                                                    lineNumber: 144,
+                                                    lineNumber: 116,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -364,27 +229,30 @@ function ProfilePage() {
                                                     name: "height",
                                                     value: formData.height,
                                                     onChange: handleChange,
-                                                    style: inputStyle
+                                                    style: inputStyle,
+                                                    className: "jsx-db6c78c1d7655094"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/profile/page.tsx",
-                                                    lineNumber: 145,
+                                                    lineNumber: 117,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/profile/page.tsx",
-                                            lineNumber: 143,
+                                            lineNumber: 115,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             style: inputGroup,
+                                            className: "jsx-db6c78c1d7655094",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                     style: labelStyle,
+                                                    className: "jsx-db6c78c1d7655094",
                                                     children: "Güncel Kilo (kg)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/profile/page.tsx",
-                                                    lineNumber: 148,
+                                                    lineNumber: 120,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -392,27 +260,30 @@ function ProfilePage() {
                                                     name: "weight",
                                                     value: formData.weight,
                                                     onChange: handleChange,
-                                                    style: inputStyle
+                                                    style: inputStyle,
+                                                    className: "jsx-db6c78c1d7655094"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/profile/page.tsx",
-                                                    lineNumber: 149,
+                                                    lineNumber: 121,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/profile/page.tsx",
-                                            lineNumber: 147,
+                                            lineNumber: 119,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             style: inputGroup,
+                                            className: "jsx-db6c78c1d7655094",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                     style: labelStyle,
+                                                    className: "jsx-db6c78c1d7655094",
                                                     children: "Yaş"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/profile/page.tsx",
-                                                    lineNumber: 152,
+                                                    lineNumber: 124,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -420,27 +291,30 @@ function ProfilePage() {
                                                     name: "age",
                                                     value: formData.age,
                                                     onChange: handleChange,
-                                                    style: inputStyle
+                                                    style: inputStyle,
+                                                    className: "jsx-db6c78c1d7655094"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/profile/page.tsx",
-                                                    lineNumber: 153,
+                                                    lineNumber: 125,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/profile/page.tsx",
-                                            lineNumber: 151,
+                                            lineNumber: 123,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             style: inputGroup,
+                                            className: "jsx-db6c78c1d7655094",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                     style: labelStyle,
+                                                    className: "jsx-db6c78c1d7655094",
                                                     children: "Hedef Kilo (kg)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/profile/page.tsx",
-                                                    lineNumber: 156,
+                                                    lineNumber: 128,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -448,22 +322,23 @@ function ProfilePage() {
                                                     name: "targetWeight",
                                                     value: formData.targetWeight,
                                                     onChange: handleChange,
-                                                    style: inputStyle
+                                                    style: inputStyle,
+                                                    className: "jsx-db6c78c1d7655094"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/profile/page.tsx",
-                                                    lineNumber: 157,
+                                                    lineNumber: 129,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/profile/page.tsx",
-                                            lineNumber: 155,
+                                            lineNumber: 127,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/profile/page.tsx",
-                                    lineNumber: 137,
+                                    lineNumber: 109,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -473,6 +348,7 @@ function ProfilePage() {
                                         gap: "20px",
                                         marginTop: "20px"
                                     },
+                                    className: "jsx-db6c78c1d7655094",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                             type: "submit",
@@ -490,10 +366,11 @@ function ProfilePage() {
                                             },
                                             onMouseEnter: (e)=>e.currentTarget.style.background = "#3d5a2d",
                                             onMouseLeave: (e)=>e.currentTarget.style.background = "#79a33d",
+                                            className: "jsx-db6c78c1d7655094",
                                             children: "Bilgileri Güncelle"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/profile/page.tsx",
-                                            lineNumber: 162,
+                                            lineNumber: 134,
                                             columnNumber: 29
                                         }, this),
                                         saved && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -502,58 +379,42 @@ function ProfilePage() {
                                                 fontWeight: 600,
                                                 animation: "fadeIn 0.5s"
                                             },
+                                            className: "jsx-db6c78c1d7655094",
                                             children: "Değişiklikler başarıyla kaydedildi!"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/profile/page.tsx",
-                                            lineNumber: 183,
+                                            lineNumber: 155,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/profile/page.tsx",
-                                    lineNumber: 161,
+                                    lineNumber: 133,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/dashboard/profile/page.tsx",
-                            lineNumber: 131,
+                            lineNumber: 103,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/dashboard/profile/page.tsx",
-                    lineNumber: 125,
+                    lineNumber: 97,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/dashboard/profile/page.tsx",
-                lineNumber: 123,
+                lineNumber: 96,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
-                children: `
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateX(-10px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        @media (max-width: 1024px) {
-          form { padding: 25px !important; }
-          div[style*="grid-template-columns: repeat(4"] { grid-template-columns: 1fr 1fr !important; }
-          div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
-        }
-      `
-            }, void 0, false, {
-                fileName: "[project]/app/dashboard/profile/page.tsx",
-                lineNumber: 193,
-                columnNumber: 13
-            }, this)
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                id: "db6c78c1d7655094",
+                children: "@keyframes fadeIn{0%{opacity:0;transform:translate(-10px)}to{opacity:1;transform:translate(0)}}@media (width<=1024px){form.jsx-db6c78c1d7655094{padding:25px!important}.stats-grid-mobile.jsx-db6c78c1d7655094{grid-template-columns:1fr!important}}"
+            }, void 0, false, void 0, this)
         ]
-    }, void 0, true, {
-        fileName: "[project]/app/dashboard/profile/page.tsx",
-        lineNumber: 96,
-        columnNumber: 9
-    }, this);
+    }, void 0, true);
 }
 _s(ProfilePage, "dIR3vB3SosuBYoYuhN0MoMXdIsg=", false, function() {
     return [
@@ -581,21 +442,6 @@ const inputStyle = {
     fontWeight: 600,
     transition: "border-color 0.3s",
     background: "#fff"
-};
-const navLink = {
-    padding: "12px 15px",
-    borderRadius: "8px",
-    color: "white",
-    textDecoration: "none",
-    fontSize: "14px",
-    transition: "background 0.3s",
-    opacity: 0.8
-};
-const activeNavLink = {
-    ...navLink,
-    background: "rgba(255,255,255,0.1)",
-    opacity: 1,
-    fontWeight: 700
 };
 var _c;
 __turbopack_context__.k.register(_c, "ProfilePage");
