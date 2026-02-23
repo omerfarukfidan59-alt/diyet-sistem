@@ -61,7 +61,23 @@ export default function AdminDashboard() {
 
     return (
         <>
-            <div style={{ flex: 1, padding: "50px", display: "flex", flexDirection: "column" }}>
+            {/* Admin main wrapper responsive padding */}
+            <div className="admin-page-wrapper" style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+                <style jsx>{`
+                    .admin-page-wrapper {
+                        padding: 50px;
+                    }
+                    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+                    .content-grid { grid-template-columns: 1.5fr 1fr; }
+
+                    @media (max-width: 1024px) {
+                        .admin-page-wrapper {
+                            padding: 20px;
+                        }
+                        .stats-grid { grid-template-columns: 1fr; }
+                        .content-grid { grid-template-columns: 1fr; }
+                    }
+                `}</style>
 
                 <div style={{ marginBottom: "40px" }}>
                     <h1 style={{ fontSize: "32px", fontWeight: 700, color: "#2c3e50" }}>Yönetim Paneli</h1>
@@ -69,7 +85,8 @@ export default function AdminDashboard() {
                 </div>
 
                 {/* Stats Grid */}
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "25px", marginBottom: "50px" }}>
+                <div className="stats-grid" style={{ display: "grid", gap: "25px", marginBottom: "50px" }}>
+
                     {stats.map((stat, i) => (
                         <div key={i} style={{
                             background: "white",
@@ -88,7 +105,8 @@ export default function AdminDashboard() {
                     ))}
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: "30px" }}>
+                <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+
 
                     {/* Recent Activity */}
                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>

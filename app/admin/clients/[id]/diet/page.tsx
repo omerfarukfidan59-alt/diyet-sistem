@@ -203,7 +203,18 @@ export default function DietAssignmentPage() {
 
     return (
         <>
-            <div style={{ flex: 1, padding: "50px", display: "flex", flexDirection: "column" }}>
+            {/* Diet Assignment wrapper responsive padding */}
+            <div className="diet-page-wrapper" style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+                <style jsx>{`
+                    .diet-page-wrapper {
+                        padding: 50px;
+                    }
+                    @media (max-width: 1024px) {
+                        .diet-page-wrapper {
+                            padding: 20px;
+                        }
+                    }
+                `}</style>
 
 
                 <div style={{ marginBottom: "40px" }}>

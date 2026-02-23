@@ -114,7 +114,18 @@ export default function ClientMenuPage() {
 
     return (
         <>
-            <div style={{ flex: 1, padding: "50px", display: "flex", flexDirection: "column" }}>
+            {/* Client Menu wrapper responsive padding */}
+            <div className="menu-page-wrapper" style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+                <style jsx>{`
+                    .menu-page-wrapper {
+                        padding: 50px;
+                    }
+                    @media (max-width: 1024px) {
+                        .menu-page-wrapper {
+                            padding: 20px;
+                        }
+                    }
+                `}</style>
                 <div style={{ marginBottom: "40px" }}>
                     <h1 style={{ fontSize: "32px", fontWeight: 700, color: "#333" }}>Günlük Diyet Listem</h1>
                     <p style={{ color: "#666" }}>Diyetisyeniniz tarafından size özel hazırlanan beslenme programı.</p>

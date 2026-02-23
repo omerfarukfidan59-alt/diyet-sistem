@@ -722,3 +722,469 @@ Unterminated regexp literal
 [00:54:45.062] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
 [00:57:23.535] Server  LOG     ✓ Compiled in 30ms
 [00:57:58.733] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:13:26.345] Browser ERROR   ./app/admin/page.tsx:84:21
+Ecmascript file had an error
+  82 |                 {/* Stats Grid */}
+  83 |                 <div className="stats-grid" style={{ display: "grid", gap: "25px", marginBottom: "50px" }}>
+> 84 |                     <style jsx>{`
+     |                     ^^^^^^^^^^^^^
+> 85 |                     .stats-grid { grid-template-columns: repeat(3, 1fr); }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 86 |                     @media (max-width: 1024px) {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 87 |                         .stats-grid { grid-template-columns: 1fr; }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 88 |                     }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 89 |                 `}</style>
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  90 |                     {stats.map((stat, i) => (
+  91 |                         <div key={i} style={{
+  92 |                             background: "white",
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:13:28.255] Browser ERROR   ./app/admin/page.tsx:109:21
+Ecmascript file had an error
+  107 |
+  108 |                 <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+> 109 |                     <style jsx>{`
+      |                     ^^^^^^^^^^^^^
+> 110 |                     .content-grid { grid-template-columns: 1.5fr 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |                     @media (max-width: 1024px) {
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |                         .content-grid { grid-template-columns: 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 113 |                     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 114 |                 `}</style>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  115 |
+  116 |                     {/* Recent Activity */}
+  117 |                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:13:44.061] Browser ERROR   ./app/admin/page.tsx:109:21
+Ecmascript file had an error
+  107 |
+  108 |                 <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+> 109 |                     <style jsx>{`
+      |                     ^^^^^^^^^^^^^
+> 110 |                     .content-grid { grid-template-columns: 1.5fr 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |                     @media (max-width: 1024px) {
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |                         .content-grid { grid-template-columns: 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 113 |                     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 114 |                 `}</style>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  115 |
+  116 |                     {/* Recent Activity */}
+  117 |                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:13:46.115] Browser ERROR   ./app/admin/page.tsx:109:21
+Ecmascript file had an error
+  107 |
+  108 |                 <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+> 109 |                     <style jsx>{`
+      |                     ^^^^^^^^^^^^^
+> 110 |                     .content-grid { grid-template-columns: 1.5fr 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |                     @media (max-width: 1024px) {
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |                         .content-grid { grid-template-columns: 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 113 |                     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 114 |                 `}</style>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  115 |
+  116 |                     {/* Recent Activity */}
+  117 |                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:14:08.516] Browser ERROR   ./app/admin/page.tsx:109:21
+Ecmascript file had an error
+  107 |
+  108 |                 <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+> 109 |                     <style jsx>{`
+      |                     ^^^^^^^^^^^^^
+> 110 |                     .content-grid { grid-template-columns: 1.5fr 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |                     @media (max-width: 1024px) {
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |                         .content-grid { grid-template-columns: 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 113 |                     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 114 |                 `}</style>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  115 |
+  116 |                     {/* Recent Activity */}
+  117 |                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:14:11.326] Browser ERROR   ./app/admin/page.tsx:109:21
+Ecmascript file had an error
+  107 |
+  108 |                 <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+> 109 |                     <style jsx>{`
+      |                     ^^^^^^^^^^^^^
+> 110 |                     .content-grid { grid-template-columns: 1.5fr 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |                     @media (max-width: 1024px) {
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |                         .content-grid { grid-template-columns: 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 113 |                     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 114 |                 `}</style>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  115 |
+  116 |                     {/* Recent Activity */}
+  117 |                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:14:13.211] Browser ERROR   ./app/admin/page.tsx:109:21
+Ecmascript file had an error
+  107 |
+  108 |                 <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+> 109 |                     <style jsx>{`
+      |                     ^^^^^^^^^^^^^
+> 110 |                     .content-grid { grid-template-columns: 1.5fr 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |                     @media (max-width: 1024px) {
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |                         .content-grid { grid-template-columns: 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 113 |                     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 114 |                 `}</style>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  115 |
+  116 |                     {/* Recent Activity */}
+  117 |                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:14:40.726] Browser ERROR   ./app/admin/page.tsx:109:21
+Ecmascript file had an error
+  107 |
+  108 |                 <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+> 109 |                     <style jsx>{`
+      |                     ^^^^^^^^^^^^^
+> 110 |                     .content-grid { grid-template-columns: 1.5fr 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |                     @media (max-width: 1024px) {
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |                         .content-grid { grid-template-columns: 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 113 |                     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 114 |                 `}</style>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  115 |
+  116 |                     {/* Recent Activity */}
+  117 |                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:14:40.866] Browser ERROR   ./app/admin/page.tsx:109:21
+Ecmascript file had an error
+  107 |
+  108 |                 <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+> 109 |                     <style jsx>{`
+      |                     ^^^^^^^^^^^^^
+> 110 |                     .content-grid { grid-template-columns: 1.5fr 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |                     @media (max-width: 1024px) {
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |                         .content-grid { grid-template-columns: 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 113 |                     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 114 |                 `}</style>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  115 |
+  116 |                     {/* Recent Activity */}
+  117 |                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:14:40.866] Browser ERROR   ./app/admin/page.tsx:109:21
+Ecmascript file had an error
+  107 |
+  108 |                 <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+> 109 |                     <style jsx>{`
+      |                     ^^^^^^^^^^^^^
+> 110 |                     .content-grid { grid-template-columns: 1.5fr 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |                     @media (max-width: 1024px) {
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |                         .content-grid { grid-template-columns: 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 113 |                     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 114 |                 `}</style>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  115 |
+  116 |                     {/* Recent Activity */}
+  117 |                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:14:41.561] Browser ERROR   ./app/admin/page.tsx:109:21
+Ecmascript file had an error
+  107 |
+  108 |                 <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+> 109 |                     <style jsx>{`
+      |                     ^^^^^^^^^^^^^
+> 110 |                     .content-grid { grid-template-columns: 1.5fr 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |                     @media (max-width: 1024px) {
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |                         .content-grid { grid-template-columns: 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 113 |                     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 114 |                 `}</style>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  115 |
+  116 |                     {/* Recent Activity */}
+  117 |                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:14:42.246] Browser ERROR   ./app/admin/page.tsx:109:21
+Ecmascript file had an error
+  107 |
+  108 |                 <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+> 109 |                     <style jsx>{`
+      |                     ^^^^^^^^^^^^^
+> 110 |                     .content-grid { grid-template-columns: 1.5fr 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |                     @media (max-width: 1024px) {
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |                         .content-grid { grid-template-columns: 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 113 |                     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 114 |                 `}</style>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  115 |
+  116 |                     {/* Recent Activity */}
+  117 |                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:14:44.044] Browser ERROR   ./app/admin/page.tsx:109:21
+Ecmascript file had an error
+  107 |
+  108 |                 <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+> 109 |                     <style jsx>{`
+      |                     ^^^^^^^^^^^^^
+> 110 |                     .content-grid { grid-template-columns: 1.5fr 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |                     @media (max-width: 1024px) {
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |                         .content-grid { grid-template-columns: 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 113 |                     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 114 |                 `}</style>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  115 |
+  116 |                     {/* Recent Activity */}
+  117 |                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:14:44.692] Browser ERROR   ./app/admin/page.tsx:109:21
+Ecmascript file had an error
+  107 |
+  108 |                 <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+> 109 |                     <style jsx>{`
+      |                     ^^^^^^^^^^^^^
+> 110 |                     .content-grid { grid-template-columns: 1.5fr 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |                     @media (max-width: 1024px) {
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |                         .content-grid { grid-template-columns: 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 113 |                     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 114 |                 `}</style>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  115 |
+  116 |                     {/* Recent Activity */}
+  117 |                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:14:44.854] Browser ERROR   ./app/admin/page.tsx:109:21
+Ecmascript file had an error
+  107 |
+  108 |                 <div className="content-grid" style={{ display: "grid", gap: "30px" }}>
+> 109 |                     <style jsx>{`
+      |                     ^^^^^^^^^^^^^
+> 110 |                     .content-grid { grid-template-columns: 1.5fr 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |                     @media (max-width: 1024px) {
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |                         .content-grid { grid-template-columns: 1fr; }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 113 |                     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 114 |                 `}</style>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  115 |
+  116 |                     {/* Recent Activity */}
+  117 |                     <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+
+Detected nested styled-jsx tag.
+Read more: https://nextjs.org/docs/messages/nested-styled-jsx-tags
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/page.tsx [Client Component Browser]
+    ./app/admin/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/page.tsx [Client Component SSR]
+    ./app/admin/page.tsx [Server Component]
+[01:15:38.028] Server  LOG     ✓ Compiled in 30ms
