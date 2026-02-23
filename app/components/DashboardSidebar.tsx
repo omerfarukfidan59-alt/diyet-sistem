@@ -21,10 +21,10 @@ export default function DashboardSidebar() {
         <>
             {/* Mobile Header with Hamburger */}
             <div className="mobile-header">
-                <div className="mobile-logo">🍃 Sümeyye Gencal</div>
                 <button className="hamburger-btn" onClick={toggleSidebar}>
                     ☰
                 </button>
+                <div className="mobile-logo">🍃 Sümeyye Gencal</div>
             </div>
 
             {/* Mobile Backdrop Overlay */}
@@ -165,6 +165,7 @@ export default function DashboardSidebar() {
                         top: 0;
                         left: 0;
                         transform: translateX(-100%);
+                        max-width: 80vw;
                     }
                     .sidebar-container.open {
                         transform: translateX(0);

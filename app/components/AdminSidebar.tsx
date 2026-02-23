@@ -23,10 +23,10 @@ export default function AdminSidebar() {
         <>
             {/* Mobile Header with Hamburger */}
             <div className="admin-mobile-header">
-                <div className="admin-mobile-logo">🍃 Sümeyye Hanım</div>
                 <button className="hamburger-btn" onClick={toggleSidebar}>
                     ☰
                 </button>
+                <div className="admin-mobile-logo">🍃 Sümeyye Hanım</div>
             </div>
 
             {/* Mobile Backdrop Overlay */}
@@ -165,6 +165,7 @@ export default function AdminSidebar() {
                         left: 0;
                         transform: translateX(-100%);
                         padding: 20px;
+                        max-width: 80vw;
                     }
                     .admin-sidebar-container.open {
                         transform: translateX(0);
