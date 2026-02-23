@@ -123,7 +123,7 @@ export default function DietAssignmentPage() {
                 // If portion is updated, try to auto-calculate calories
                 if (field === "portion") {
                     const currentFoodName = newMealArr[index].food;
-                    const baseFood = foods.find(f => f.name === currentFoodName);
+                    const baseFood = foods.find(f => f.name.toLowerCase() === String(currentFoodName).toLowerCase());
 
                     if (baseFood) {
                         const calculatedCal = calculateCalories(String(value), baseFood);
@@ -140,7 +140,7 @@ export default function DietAssignmentPage() {
     };
 
     const handleFoodChange = (meal: string, index: number, value: string) => {
-        const selectedFood = foods.find(f => f.name === value);
+        const selectedFood = foods.find(f => f.name.toLowerCase() === String(value).toLowerCase());
 
         setDiet(prevDiet => prevDiet.map((d, dayIndex) => {
             if (dayIndex === activeDay) {
