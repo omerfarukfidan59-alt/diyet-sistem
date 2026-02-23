@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { supabase } from "../../../../../utils/supabase";
 import { calculateCalories } from "../../../../../utils/calorieCalculator";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 export default function DietAssignmentPage() {
     const params = useParams();
@@ -22,7 +24,8 @@ export default function DietAssignmentPage() {
             breakfast: [],
             lunch: [],
             dinner: [],
-            snacks: []
+            snacks: [],
+            notes: ""
         }
     ]);
 
@@ -50,7 +53,11 @@ export default function DietAssignmentPage() {
                 .maybeSingle();
 
             if (dietData && dietData.content) {
-                setDiet(dietData.content);
+                const sanitizedDiet = dietData.content.map((d: any) => ({
+                    ...d,
+                    notes: d.notes || ""
+                }));
+                setDiet(sanitizedDiet);
             }
 
             // 3. Besin Kütüphanesini Çek
@@ -88,7 +95,8 @@ export default function DietAssignmentPage() {
                 breakfast: [],
                 lunch: [],
                 dinner: [],
-                snacks: []
+                snacks: [],
+                notes: "" // Yeni gün için boş not alanı
             }
         ]);
         setActiveDay(diet.length);
@@ -134,6 +142,15 @@ export default function DietAssignmentPage() {
                 }
 
                 return { ...d, [meal]: newMealArr };
+            }
+            return d;
+        }));
+    };
+
+    const handleNotesChange = (value: string) => {
+        setDiet(prevDiet => prevDiet.map((d, dayIndex) => {
+            if (dayIndex === activeDay) {
+                return { ...d, notes: value };
             }
             return d;
         }));
@@ -193,9 +210,41 @@ export default function DietAssignmentPage() {
             alert("Diyet kaydedilemedi: " + error.message);
         } else {
             alert("Diyet listesi Supabase'e başarıyla kaydedildi!");
-            router.push("/admin/clients");
+            // router.push("/admin/clients");
         }
         setLoading(false);
+    };
+
+    const handlePrint = async () => {
+        const element = document.getElementById("printable-diet");
+        if (!element) return;
+
+        // Geçici olarak görünür yapalım ki resmini çekebilelim
+        element.style.display = "block";
+
+        try {
+            const canvas = await html2canvas(element, {
+                scale: 2, // Yüksek çözünürlük
+                useCORS: true,
+                backgroundColor: "#f9fbf9"
+            });
+
+            const imgData = canvas.toDataURL("image/png");
+
+            // A4 format
+            const pdf = new jsPDF("p", "mm", "a4");
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+            pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+            pdf.save(`${client.full_name || client.name}_Diyet_Listesi.pdf`);
+
+        } catch (err) {
+            console.error("PDF oluşturulurken hata:", err);
+            alert("PDF oluşturulamadı.");
+        } finally {
+            element.style.display = "none";
+        }
     };
 
     if (loading) return <div>Veriler yükleniyor...</div>;
@@ -216,15 +265,17 @@ export default function DietAssignmentPage() {
                     }
                 `}</style>
 
-
                 <div style={{ marginBottom: "40px" }}>
                     <Link href="/admin/clients" style={{ color: "#79a33d", textDecoration: "none", fontSize: "14px", fontWeight: 700 }}>← Listeye Dön</Link>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "10px" }}>
                         <div>
-                            <h1 style={{ fontSize: "32px", fontWeight: 700, color: "#2c3e50" }}>Diyet Hazırla: {client.name}</h1>
+                            <h1 style={{ fontSize: "32px", fontWeight: 700, color: "#2c3e50" }}>Diyet Hazırla: {client.full_name || client.name}</h1>
                             <p style={{ color: "#7f8c8d" }}>Danışan için öğün detaylarını gün gün planlayabilirsiniz.</p>
                         </div>
-                        <button onClick={handleSave} style={saveBtn}>Diyet Listesini {diet.length} Günlük Kaydet</button>
+                        <div style={{ display: 'flex', gap: '15px' }}>
+                            <button onClick={handlePrint} style={{ ...saveBtn, background: '#f39c12', boxShadow: "0 10px 20px rgba(243, 156, 18, 0.2)" }}> PDF Olarak Yazdır</button>
+                            <button onClick={handleSave} style={saveBtn}>Diyet Listesini {diet.length} Günlük Kaydet</button>
+                        </div>
                     </div>
                 </div>
 
@@ -319,7 +370,6 @@ export default function DietAssignmentPage() {
                 </div>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
-
                     {["breakfast", "lunch", "dinner", "snacks"].map((meal) => (
                         <div key={meal} style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
@@ -366,6 +416,23 @@ export default function DietAssignmentPage() {
                             </table>
                         </div>
                     ))}
+
+                    {/* Notlar Alanı Ekleme Yeri */}
+                    <div style={{ background: "white", padding: "30px", borderRadius: "20px", boxShadow: "0 10px 20px rgba(0,0,0,0.02)" }}>
+                        <div style={{ marginBottom: "15px" }}>
+                            <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#3d5a2d" }}>
+                                Notlar ve Tavsiyeler ({activeDay + 1}. Gün)
+                            </h3>
+                            <p style={{ color: "#7f8c8d", fontSize: "13px", marginTop: "5px" }}>Güne özel danışana iletmek istediğiniz ekstra tavsiyeler, notlar veya su tüketimi gibi detayları buraya yazabilirsiniz.</p>
+                        </div>
+                        <textarea
+                            value={diet[activeDay]?.notes || ""}
+                            onChange={(e) => handleNotesChange(e.target.value)}
+                            rows={4}
+                            style={{ ...inputStyle, resize: "vertical" }}
+                            placeholder="Örn: Gün içerisinde 3 litre su içmeyi unutmayın..."
+                        />
+                    </div>
                 </div>
 
                 <datalist id="food-suggestions">
@@ -374,6 +441,109 @@ export default function DietAssignmentPage() {
                     ))}
                 </datalist>
 
+                {/* --- YAZDIRILABİLİR GİZLİ ALAN --- */}
+                <div id="printable-diet" style={{
+                    display: "none",
+                    position: "absolute",
+                    left: "-9999px",
+                    top: 0,
+                    width: "210mm", /* A4 Genişliği */
+                    minHeight: "297mm", /* A4 Yüksekliği */
+                    padding: "40mm 20mm 20mm 20mm",
+                    background: "#f9fcf9",
+                    fontFamily: "'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+                    color: "#2c3e50",
+                    boxSizing: "border-box"
+                }}>
+                    {/* Arka plan efekti kaldırıldı (CORS/load hatası nedeniyle) */}
+                    <div style={{ position: 'relative', zIndex: 1 }}>
+                        {/* Header */}
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px', borderBottom: '2px solid #e0ebd4', paddingBottom: '20px' }}>
+                            <div>
+                                <h1 style={{ fontSize: "16px", letterSpacing: "3px", color: "#5a7a3b", margin: 0, fontWeight: 600, textTransform: "uppercase" }}>
+                                    KİŞİYE ÖZEL
+                                </h1>
+                                <h2 style={{ fontSize: "36px", margin: "5px 0 0 0", color: "#2c3e50", fontWeight: 300, letterSpacing: "1px" }}>
+                                    DİYET LİSTESİ
+                                </h2>
+                                <p style={{ margin: "5px 0 0 0", fontSize: "15px", color: "#7f8c8d", fontWeight: 500 }}>
+                                    Danışan: {client.full_name || client.name}
+                                </p>
+                            </div>
+                            <div style={{ textAlign: "center" }}>
+                                <div style={{ background: '#79a33d', color: 'white', width: '60px', height: '60px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 10px', fontSize: '30px', fontWeight: 'bold' }}>
+                                    D
+                                </div>
+                                <div style={{ fontSize: "14px", fontWeight: 600, color: "#2d3436" }}>Sümeyye Hanım</div>
+                                <div style={{ fontSize: "12px", color: "#95a5a6", marginTop: "2px" }}>Diyetisyen</div>
+                            </div>
+                        </div>
+
+                        {/* Seçili Günün Listesi */}
+                        <div style={{ marginBottom: "20px" }}>
+                            <h3 style={{ fontSize: "20px", color: "#79a33d", borderBottom: "1px dashed #ccc", paddingBottom: "10px", marginBottom: "25px" }}>
+                                {activeDay + 1}. Gün Programı
+                            </h3>
+
+                            {["breakfast", "lunch", "snacks", "dinner"].map((meal) => {
+                                const mealItems = (diet[activeDay] as any)[meal] || [];
+                                if (mealItems.length === 0) return null;
+
+                                return (
+                                    <div key={meal} style={{ marginBottom: "25px" }}>
+                                        <div style={{
+                                            background: "#d6e5c5",
+                                            padding: "10px 15px",
+                                            fontSize: "16px",
+                                            fontWeight: 600,
+                                            color: "#3d5a2d",
+                                            textTransform: "uppercase",
+                                            letterSpacing: "1px",
+                                            borderLeft: "5px solid #79a33d"
+                                        }}>
+                                            {meal === "breakfast" ? "Kahvaltı" : meal === "lunch" ? "Öğle Yemeği" : meal === "snacks" ? "Ara Öğün" : "Akşam Yemeği"}
+                                        </div>
+                                        <div style={{ background: "white", padding: "15px 20px", border: "1px solid #e0e0e0", borderTop: "none" }}>
+                                            <ul style={{ margin: 0, paddingLeft: "15px", color: "#34495e", fontSize: "15px", lineHeight: "1.6" }}>
+                                                {mealItems.map((item: any, idx: number) => (
+                                                    <li key={idx} style={{ marginBottom: "8px" }}>
+                                                        <span style={{ fontWeight: 600 }}>{item.portion}</span> {item.food}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {/* Notlar */}
+                        {diet[activeDay]?.notes && diet[activeDay].notes.trim() !== "" && (
+                            <div style={{ marginTop: "40px" }}>
+                                <div style={{
+                                    background: "#dae5cc",
+                                    padding: "10px 15px",
+                                    fontSize: "16px",
+                                    fontWeight: 600,
+                                    color: "#3d5a2d",
+                                    textTransform: "uppercase",
+                                    letterSpacing: "1px",
+                                    borderLeft: "5px solid #79a33d"
+                                }}>
+                                    NOTLAR VE TAVSİYELER
+                                </div>
+                                <div style={{ background: "white", padding: "15px 20px", border: "1px solid #e0e0e0", borderTop: "none", fontSize: "14px", color: "#7f8c8d", lineHeight: "1.6", whiteSpace: "pre-line" }}>
+                                    {diet[activeDay].notes}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Footer */}
+                    <div style={{ marginTop: "50px", textAlign: "center", fontSize: "13px", color: "#95a5a6", borderTop: "1px solid #eee", paddingTop: "20px" }}>
+                        merhaba@diyetisyen.web.tr | Bu diyet listesi kişiye özel olarak hazırlanmıştır.
+                    </div>
+                </div>
             </div>
         </>
     );

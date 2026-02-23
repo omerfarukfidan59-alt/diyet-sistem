@@ -7,6 +7,15 @@ import { supabase } from "../../../utils/supabase";
 export default function ClientsPage() {
     const [clients, setClients] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
+    const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [newClient, setNewClient] = useState({
+        full_name: "",
+        height: "",
+        weight: "",
+        target_weight: "",
+        age: ""
+    });
 
     useEffect(() => {
         fetchClients();
@@ -25,6 +34,68 @@ export default function ClientsPage() {
         }
         setLoading(false);
     }
+
+    const handleAddClient = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        try {
+            // Create a secondary supabase client that doesn't persist session
+            // so we don't log out the admin
+            const { createClient } = await import('@supabase/supabase-js');
+            const authClient = createClient(
+                process.env.NEXT_PUBLIC_SUPABASE_URL!,
+                process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+                {
+                    auth: {
+                        autoRefreshToken: false,
+                        persistSession: false,
+                        detectSessionInUrl: false
+                    }
+                }
+            );
+
+            const email = `manual_${Date.now()}@diyet.local`;
+            const password = 'Password' + Math.random().toString(36).slice(-8) + '!';
+
+            const { data: authData, error: authError } = await authClient.auth.signUp({
+                email,
+                password,
+                options: {
+                    data: {
+                        full_name: newClient.full_name,
+                        role: 'client'
+                    }
+                }
+            });
+
+            if (authError) throw authError;
+
+            if (authData.user) {
+                const { error: profileError } = await supabase.from('profiles').upsert({
+                    id: authData.user.id,
+                    full_name: newClient.full_name,
+                    role: 'client',
+                    height: Number(newClient.height),
+                    weight: Number(newClient.weight),
+                    target_weight: Number(newClient.target_weight),
+                    age: Number(newClient.age)
+                });
+
+                if (profileError) throw profileError;
+
+                alert('Danışan başarıyla eklendi!');
+                setIsAddModalOpen(false);
+                setNewClient({ full_name: "", height: "", weight: "", target_weight: "", age: "" });
+                fetchClients(); // Refresh list
+            }
+        } catch (error: any) {
+            console.error('Ekleme hatası:', error);
+            alert('Danışan eklenirken bir hata oluştu: ' + error.message);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     const handleDeleteClient = async (clientId: string, clientName: string) => {
         if (!window.confirm(`${clientName} isimli danışanı silmek istediğinize emin misiniz? Bu işlem geri alınamaz ve o kişiye ait tüm veriler (diyet, gelişim, kilo, giriş hesabı) kalıcı olarak silinir.`)) return;
@@ -61,6 +132,22 @@ export default function ClientsPage() {
                         <h1 style={{ fontSize: "32px", fontWeight: 700, color: "#2c3e50" }}>Danışan Yönetimi</h1>
                         <p style={{ color: "#7f8c8d" }}>Sisteme kayıtlı tüm danışanlarınızın listesi ve analiz verileri.</p>
                     </div>
+                    <button
+                        onClick={() => setIsAddModalOpen(true)}
+                        style={{
+                            background: "#79a33d",
+                            color: "white",
+                            border: "none",
+                            padding: "12px 24px",
+                            borderRadius: "10px",
+                            fontSize: "15px",
+                            fontWeight: 600,
+                            cursor: "pointer",
+                            boxShadow: "0 4px 6px rgba(121, 163, 61, 0.2)"
+                        }}
+                    >
+                        + Danışan Ekle
+                    </button>
                 </div>
 
                 {/* Clients Table */}
@@ -149,6 +236,64 @@ export default function ClientsPage() {
                     </table>
                 </div>
 
+                {/* Ekleme Modal'ı */}
+                {isAddModalOpen && (
+                    <div style={{
+                        position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+                        backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex',
+                        justifyContent: 'center', alignItems: 'center', zIndex: 1000
+                    }}>
+                        <div style={{
+                            background: 'white', padding: '30px', borderRadius: '15px',
+                            width: '90%', maxWidth: '500px', boxShadow: '0 10px 25px rgba(0,0,0,0.2)'
+                        }}>
+                            <h2 style={{ marginTop: 0, marginBottom: '20px', color: '#2c3e50' }}>Manuel Danışan Ekle</h2>
+                            <form onSubmit={handleAddClient} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                                <div>
+                                    <label style={labelStyle}>Ad Soyad</label>
+                                    <input required type="text" style={inputStyle} value={newClient.full_name} onChange={e => setNewClient({ ...newClient, full_name: e.target.value })} placeholder="Örn: Ali Yılmaz" />
+                                </div>
+                                <div style={{ display: 'flex', gap: '15px' }}>
+                                    <div style={{ flex: 1 }}>
+                                        <label style={labelStyle}>Boy (cm)</label>
+                                        <input required type="number" style={inputStyle} value={newClient.height} onChange={e => setNewClient({ ...newClient, height: e.target.value })} placeholder="180" />
+                                    </div>
+                                    <div style={{ flex: 1 }}>
+                                        <label style={labelStyle}>Kilo (kg)</label>
+                                        <input required type="number" step="0.1" style={inputStyle} value={newClient.weight} onChange={e => setNewClient({ ...newClient, weight: e.target.value })} placeholder="75" />
+                                    </div>
+                                </div>
+                                <div style={{ display: 'flex', gap: '15px' }}>
+                                    <div style={{ flex: 1 }}>
+                                        <label style={labelStyle}>Hedef Kilo (kg)</label>
+                                        <input required type="number" step="0.1" style={inputStyle} value={newClient.target_weight} onChange={e => setNewClient({ ...newClient, target_weight: e.target.value })} placeholder="70" />
+                                    </div>
+                                    <div style={{ flex: 1 }}>
+                                        <label style={labelStyle}>Yaş</label>
+                                        <input required type="number" style={inputStyle} value={newClient.age} onChange={e => setNewClient({ ...newClient, age: e.target.value })} placeholder="30" />
+                                    </div>
+                                </div>
+
+                                <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '20px' }}>
+                                    <button type="button" onClick={() => setIsAddModalOpen(false)} style={{
+                                        padding: '10px 20px', border: 'none', background: '#ecf0f1', color: '#7f8c8d',
+                                        borderRadius: '8px', cursor: 'pointer', fontWeight: 600
+                                    }}>
+                                        İptal
+                                    </button>
+                                    <button type="submit" disabled={isSubmitting} style={{
+                                        padding: '10px 20px', border: 'none', background: '#79a33d', color: 'white',
+                                        borderRadius: '8px', cursor: isSubmitting ? 'not-allowed' : 'pointer', fontWeight: 600,
+                                        opacity: isSubmitting ? 0.7 : 1
+                                    }}>
+                                        {isSubmitting ? 'Ekleniyor...' : 'Kaydet'}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                )}
+
             </div>
         </>
     );
@@ -177,4 +322,23 @@ const actionBtn: React.CSSProperties = {
     padding: "5px",
     borderRadius: "5px",
     transition: "background 0.3s"
+};
+
+const labelStyle: React.CSSProperties = {
+    display: 'block',
+    marginBottom: '5px',
+    fontSize: '14px',
+    fontWeight: 600,
+    color: '#34495e'
+};
+
+const inputStyle: React.CSSProperties = {
+    width: '100%',
+    padding: '10px 15px',
+    border: '1px solid #bdc3c7',
+    borderRadius: '8px',
+    fontSize: '15px',
+    boxSizing: 'border-box',
+    outline: 'none',
+    transition: 'border-color 0.3s'
 };
