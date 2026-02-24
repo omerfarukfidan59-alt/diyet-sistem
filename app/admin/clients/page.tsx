@@ -8,14 +8,17 @@ export default function ClientsPage() {
     const [clients, setClients] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [newClient, setNewClient] = useState({
         full_name: "",
         height: "",
         weight: "",
         target_weight: "",
-        age: ""
+        age: "",
+        gender: "Erkek"
     });
+    const [editingClient, setEditingClient] = useState<any>(null);
 
     useEffect(() => {
         fetchClients();
@@ -79,19 +82,51 @@ export default function ClientsPage() {
                     height: Number(newClient.height),
                     weight: Number(newClient.weight),
                     target_weight: Number(newClient.target_weight),
-                    age: Number(newClient.age)
+                    age: Number(newClient.age),
+                    gender: newClient.gender
                 });
 
                 if (profileError) throw profileError;
 
                 alert('Danışan başarıyla eklendi!');
                 setIsAddModalOpen(false);
-                setNewClient({ full_name: "", height: "", weight: "", target_weight: "", age: "" });
+                setNewClient({ full_name: "", height: "", weight: "", target_weight: "", age: "", gender: "Erkek" });
                 fetchClients(); // Refresh list
             }
         } catch (error: any) {
             console.error('Ekleme hatası:', error);
             alert('Danışan eklenirken bir hata oluştu: ' + error.message);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    const handleUpdateClient = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        try {
+            const { error } = await supabase
+                .from('profiles')
+                .update({
+                    full_name: editingClient.full_name,
+                    height: Number(editingClient.height),
+                    weight: Number(editingClient.weight),
+                    target_weight: Number(editingClient.target_weight),
+                    age: Number(editingClient.age),
+                    gender: editingClient.gender
+                })
+                .eq('id', editingClient.id);
+
+            if (error) throw error;
+
+            alert('Danışan başarıyla güncellendi!');
+            setIsEditModalOpen(false);
+            setEditingClient(null);
+            fetchClients(); // Listeyi yenile
+        } catch (error: any) {
+            console.error('Güncelleme hatası:', error);
+            alert('Danışan güncellenirken bir hata oluştu: ' + error.message);
         } finally {
             setIsSubmitting(false);
         }
@@ -174,7 +209,17 @@ export default function ClientsPage() {
                             ) : clients.length > 0 ? clients.map((client) => {
                                 const bmi = (Number(client.weight) / ((Number(client.height) / 100) ** 2)).toFixed(1);
                                 const clientAge = Number(client.age) || 30; // Varsayılan 30 yaş
-                                const bmh = Math.round(10 * Number(client.weight) + 6.25 * Number(client.height) - 5 * clientAge + 5);
+                                const clientGender = client.gender || "Erkek";
+
+                                // BMH Hedef Kilo üzerinden hesaplanıyor
+                                let bmh = 0;
+                                const targetW = Number(client.target_weight) || Number(client.weight); // Hedef kilo yoksa mevcut kiloyu al
+
+                                if (clientGender === 'Kadın') {
+                                    bmh = Math.round(10 * targetW + 6.25 * Number(client.height) - 5 * clientAge - 161);
+                                } else {
+                                    bmh = Math.round(10 * targetW + 6.25 * Number(client.height) - 5 * clientAge + 5);
+                                }
 
                                 return (
                                     <tr key={client.id} style={{ borderBottom: "1px solid #f1f1f1" }}>
@@ -220,6 +265,15 @@ export default function ClientsPage() {
                                                 >
                                                     Diyet Hazırla
                                                 </Link>
+                                                <button
+                                                    onClick={() => {
+                                                        setEditingClient({ ...client, target_weight: client.target_weight || client.weight });
+                                                        setIsEditModalOpen(true);
+                                                    }}
+                                                    style={{ ...actionBtn, color: "#3498db", fontSize: "14px", fontWeight: "bold", padding: "8px 15px" }}
+                                                >
+                                                    Güncelle
+                                                </button>
                                                 <button onClick={() => handleDeleteClient(client.id, client.full_name)} style={{ ...actionBtn, color: "#e74c3c", fontSize: "14px", fontWeight: "bold", padding: "8px 15px" }}>Sil</button>
                                             </div>
                                         </td>
@@ -273,6 +327,13 @@ export default function ClientsPage() {
                                         <input required type="number" style={inputStyle} value={newClient.age} onChange={e => setNewClient({ ...newClient, age: e.target.value })} placeholder="30" />
                                     </div>
                                 </div>
+                                <div>
+                                    <label style={labelStyle}>Cinsiyet</label>
+                                    <select style={inputStyle} value={newClient.gender} onChange={e => setNewClient({ ...newClient, gender: e.target.value })}>
+                                        <option value="Erkek">Erkek</option>
+                                        <option value="Kadın">Kadın</option>
+                                    </select>
+                                </div>
 
                                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '20px' }}>
                                     <button type="button" onClick={() => setIsAddModalOpen(false)} style={{
@@ -287,6 +348,71 @@ export default function ClientsPage() {
                                         opacity: isSubmitting ? 0.7 : 1
                                     }}>
                                         {isSubmitting ? 'Ekleniyor...' : 'Kaydet'}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                )}
+
+                {/* Güncelleme Modal'ı */}
+                {isEditModalOpen && editingClient && (
+                    <div style={{
+                        position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+                        backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex',
+                        justifyContent: 'center', alignItems: 'center', zIndex: 1000
+                    }}>
+                        <div style={{
+                            background: 'white', padding: '30px', borderRadius: '15px',
+                            width: '90%', maxWidth: '500px', boxShadow: '0 10px 25px rgba(0,0,0,0.2)'
+                        }}>
+                            <h2 style={{ marginTop: 0, marginBottom: '20px', color: '#2c3e50' }}>Danışan Güncelle</h2>
+                            <form onSubmit={handleUpdateClient} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                                <div>
+                                    <label style={labelStyle}>Ad Soyad</label>
+                                    <input required type="text" style={inputStyle} value={editingClient.full_name || ""} onChange={e => setEditingClient({ ...editingClient, full_name: e.target.value })} />
+                                </div>
+                                <div style={{ display: 'flex', gap: '15px' }}>
+                                    <div style={{ flex: 1 }}>
+                                        <label style={labelStyle}>Boy (cm)</label>
+                                        <input required type="number" style={inputStyle} value={editingClient.height || ""} onChange={e => setEditingClient({ ...editingClient, height: e.target.value })} />
+                                    </div>
+                                    <div style={{ flex: 1 }}>
+                                        <label style={labelStyle}>Kilo (kg)</label>
+                                        <input required type="number" step="0.1" style={inputStyle} value={editingClient.weight || ""} onChange={e => setEditingClient({ ...editingClient, weight: e.target.value })} />
+                                    </div>
+                                </div>
+                                <div style={{ display: 'flex', gap: '15px' }}>
+                                    <div style={{ flex: 1 }}>
+                                        <label style={labelStyle}>Hedef Kilo (kg)</label>
+                                        <input required type="number" step="0.1" style={inputStyle} value={editingClient.target_weight || ""} onChange={e => setEditingClient({ ...editingClient, target_weight: e.target.value })} />
+                                    </div>
+                                    <div style={{ flex: 1 }}>
+                                        <label style={labelStyle}>Yaş</label>
+                                        <input required type="number" style={inputStyle} value={editingClient.age || ""} onChange={e => setEditingClient({ ...editingClient, age: e.target.value })} />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label style={labelStyle}>Cinsiyet</label>
+                                    <select style={inputStyle} value={editingClient.gender || "Erkek"} onChange={e => setEditingClient({ ...editingClient, gender: e.target.value })}>
+                                        <option value="Erkek">Erkek</option>
+                                        <option value="Kadın">Kadın</option>
+                                    </select>
+                                </div>
+
+                                <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '20px' }}>
+                                    <button type="button" onClick={() => { setIsEditModalOpen(false); setEditingClient(null); }} style={{
+                                        padding: '10px 20px', border: 'none', background: '#ecf0f1', color: '#7f8c8d',
+                                        borderRadius: '8px', cursor: 'pointer', fontWeight: 600
+                                    }}>
+                                        İptal
+                                    </button>
+                                    <button type="submit" disabled={isSubmitting} style={{
+                                        padding: '10px 20px', border: 'none', background: '#3498db', color: 'white',
+                                        borderRadius: '8px', cursor: isSubmitting ? 'not-allowed' : 'pointer', fontWeight: 600,
+                                        opacity: isSubmitting ? 0.7 : 1
+                                    }}>
+                                        {isSubmitting ? 'Güncelleniyor...' : 'Güncelle'}
                                     </button>
                                 </div>
                             </form>

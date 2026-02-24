@@ -57,6 +57,7 @@ export default function LoginPage() {
                         height: profile.height,
                         weight: profile.weight,
                         age: profile.age,
+                        gender: profile.gender || "Erkek", // Varsayılan geri uyumluluk
                         targetWeight: profile.target_weight
                     }));
 

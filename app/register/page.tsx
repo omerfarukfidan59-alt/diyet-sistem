@@ -13,6 +13,7 @@ export default function RegisterPage() {
         height: "",
         weight: "",
         age: "",
+        gender: "Erkek", // Varsayılan değer
         targetWeight: ""
     });
     const [loading, setLoading] = useState(false);
@@ -47,6 +48,7 @@ export default function RegisterPage() {
                     height: Number(formData.height),
                     weight: Number(formData.weight),
                     age: Number(formData.age),
+                    gender: formData.gender,
                     target_weight: Number(formData.targetWeight)
                 }
             ]);
@@ -66,6 +68,7 @@ export default function RegisterPage() {
                 height: formData.height,
                 weight: formData.weight,
                 age: formData.age,
+                gender: formData.gender,
                 targetWeight: formData.targetWeight
             };
 
@@ -157,6 +160,13 @@ export default function RegisterPage() {
                         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                             <label style={{ fontSize: "13px", fontWeight: 700, color: "#555" }}>Yaş</label>
                             <input type="number" name="age" required placeholder="Örn: 25" onChange={handleChange} style={inputStyle} />
+                        </div>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                            <label style={{ fontSize: "13px", fontWeight: 700, color: "#555" }}>Cinsiyet</label>
+                            <select name="gender" value={formData.gender} onChange={handleChange as any} style={inputStyle}>
+                                <option value="Erkek">Erkek</option>
+                                <option value="Kadın">Kadın</option>
+                            </select>
                         </div>
                         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                             <label style={{ fontSize: "13px", fontWeight: 700, color: "#555" }}>Hedef Kilo (kg)</label>

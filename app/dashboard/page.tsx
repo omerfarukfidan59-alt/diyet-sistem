@@ -13,6 +13,7 @@ export default function DashboardPage() {
         weight: 85,
         age: 28,
         targetWeight: 75,
+        gender: "Erkek"
     });
 
     const [dietDay, setDietDay] = useState<any>(null);
@@ -40,7 +41,8 @@ export default function DashboardPage() {
                     height: Number(parsedUser.height),
                     weight: Number(parsedUser.weight),
                     age: Number(parsedUser.age),
-                    targetWeight: Number(parsedUser.targetWeight || parsedUser.target_weight)
+                    targetWeight: Number(parsedUser.targetWeight || parsedUser.target_weight),
+                    gender: parsedUser.gender || "Erkek"
                 });
                 return;
             }
@@ -62,7 +64,8 @@ export default function DashboardPage() {
                     height: Number(profile.height),
                     weight: Number(profile.weight),
                     age: Number(profile.age),
-                    targetWeight: Number(profile.target_weight)
+                    targetWeight: Number(profile.target_weight),
+                    gender: profile.gender || "Erkek"
                 });
             }
 
@@ -109,8 +112,15 @@ export default function DashboardPage() {
     const heightInMeters = user.height / 100;
     const bmi = (user.weight / (heightInMeters * heightInMeters)).toFixed(1);
 
-    // Basitleştirilmiş BMR (BMH) hesabı
-    const bmr = Math.round(10 * user.weight + 6.25 * user.height - 5 * user.age + 5);
+    // BMH Hedef Kilo üzerinden hesabı
+    let bmr = 0;
+    const targetW = user.targetWeight || user.weight; // Hedef kilo yoksa mevcut kiloyu al
+
+    if (user.gender === 'Kadın') {
+        bmr = Math.round(10 * targetW + 6.25 * user.height - 5 * user.age - 161);
+    } else {
+        bmr = Math.round(10 * targetW + 6.25 * user.height - 5 * user.age + 5);
+    }
 
     const getBmiStatus = (val: number) => {
         if (val < 18.5) return { text: "Zayıf", color: "#f39c12" };

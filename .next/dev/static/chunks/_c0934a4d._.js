@@ -32,23 +32,23 @@ function DashboardSidebar() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "jsx-92f4cd46092d6b40" + " " + "mobile-header",
+                className: "jsx-c59abbb6a54eeaa" + " " + "mobile-header",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "jsx-92f4cd46092d6b40" + " " + "mobile-logo",
-                        children: "🍃 Sümeyye Gencal"
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        onClick: toggleSidebar,
+                        className: "jsx-c59abbb6a54eeaa" + " " + "hamburger-btn",
+                        children: "☰"
                     }, void 0, false, {
                         fileName: "[project]/app/components/DashboardSidebar.tsx",
                         lineNumber: 24,
                         columnNumber: 17
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: toggleSidebar,
-                        className: "jsx-92f4cd46092d6b40" + " " + "hamburger-btn",
-                        children: "☰"
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "jsx-c59abbb6a54eeaa" + " " + "mobile-logo",
+                        children: "🍃 Sümeyye Gencal"
                     }, void 0, false, {
                         fileName: "[project]/app/components/DashboardSidebar.tsx",
-                        lineNumber: 25,
+                        lineNumber: 27,
                         columnNumber: 17
                     }, this)
                 ]
@@ -59,20 +59,20 @@ function DashboardSidebar() {
             }, this),
             isOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 onClick: closeSidebar,
-                className: "jsx-92f4cd46092d6b40" + " " + "sidebar-backdrop"
+                className: "jsx-c59abbb6a54eeaa" + " " + "sidebar-backdrop"
             }, void 0, false, {
                 fileName: "[project]/app/components/DashboardSidebar.tsx",
                 lineNumber: 32,
                 columnNumber: 17
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "jsx-92f4cd46092d6b40" + " " + `sidebar-container ${isOpen ? "open" : ""}`,
+                className: "jsx-c59abbb6a54eeaa" + " " + `sidebar-container ${isOpen ? "open" : ""}`,
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "jsx-92f4cd46092d6b40",
+                        className: "jsx-c59abbb6a54eeaa",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                className: "jsx-92f4cd46092d6b40" + " " + "sidebar-title",
+                                className: "jsx-c59abbb6a54eeaa" + " " + "sidebar-title",
                                 children: "Sümeyye Gencal"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/DashboardSidebar.tsx",
@@ -80,7 +80,7 @@ function DashboardSidebar() {
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "jsx-92f4cd46092d6b40" + " " + "sidebar-subtitle",
+                                className: "jsx-c59abbb6a54eeaa" + " " + "sidebar-subtitle",
                                 children: "Danışan Paneli"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/DashboardSidebar.tsx",
@@ -94,7 +94,7 @@ function DashboardSidebar() {
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                        className: "jsx-92f4cd46092d6b40" + " " + "sidebar-nav",
+                        className: "jsx-c59abbb6a54eeaa" + " " + "sidebar-nav",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 href: "/dashboard",
@@ -156,10 +156,10 @@ function DashboardSidebar() {
                         style: {
                             marginTop: "auto"
                         },
-                        className: "jsx-92f4cd46092d6b40",
+                        className: "jsx-c59abbb6a54eeaa",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: handleLogout,
-                            className: "jsx-92f4cd46092d6b40" + " " + "logout-btn",
+                            className: "jsx-c59abbb6a54eeaa" + " " + "logout-btn",
                             children: "Çıkış Yap"
                         }, void 0, false, {
                             fileName: "[project]/app/components/DashboardSidebar.tsx",
@@ -178,8 +178,8 @@ function DashboardSidebar() {
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                id: "92f4cd46092d6b40",
-                children: ".mobile-header.jsx-92f4cd46092d6b40{color:#fff;z-index:50;background:#3d5a2d;justify-content:space-between;align-items:center;padding:15px 20px;display:none;position:sticky;top:0}.mobile-logo.jsx-92f4cd46092d6b40{text-transform:uppercase;letter-spacing:1px;font-size:18px;font-weight:800}.hamburger-btn.jsx-92f4cd46092d6b40{color:#fff;cursor:pointer;background:0 0;border:none;padding:0;font-size:24px}.sidebar-backdrop.jsx-92f4cd46092d6b40{z-index:99;background:#00000080;display:none;position:fixed;inset:0}.sidebar-container.jsx-92f4cd46092d6b40{color:#fff;z-index:100;background:#3d5a2d;flex-direction:column;flex-shrink:0;gap:40px;width:260px;height:100vh;padding:30px;transition:transform .3s;display:flex;position:sticky;top:0}.sidebar-title.jsx-92f4cd46092d6b40{text-transform:uppercase;letter-spacing:1px;margin:0;font-size:20px;font-weight:800}.sidebar-subtitle.jsx-92f4cd46092d6b40{opacity:.7;margin-top:5px;font-size:12px}.sidebar-nav.jsx-92f4cd46092d6b40{flex-direction:column;gap:10px;display:flex}.nav-link.jsx-92f4cd46092d6b40{color:#fff;opacity:.8;border-radius:8px;padding:12px 15px;font-size:14px;text-decoration:none;transition:background .3s}.nav-link.active.jsx-92f4cd46092d6b40{opacity:1;background:#ffffff1a;font-weight:700}.logout-btn.jsx-92f4cd46092d6b40{color:#fff;cursor:pointer;opacity:.8;background:0 0;border:none;padding:0;font-size:14px}@media (width<=1024px){.mobile-header.jsx-92f4cd46092d6b40{display:flex}.sidebar-container.jsx-92f4cd46092d6b40{position:fixed;top:0;left:0;transform:translate(-100%)}.sidebar-container.open.jsx-92f4cd46092d6b40{transform:translate(0)}.sidebar-backdrop.jsx-92f4cd46092d6b40{display:block}}"
+                id: "c59abbb6a54eeaa",
+                children: ".mobile-header.jsx-c59abbb6a54eeaa{color:#fff;z-index:50;background:#3d5a2d;justify-content:space-between;align-items:center;padding:15px 20px;display:none;position:sticky;top:0}.mobile-logo.jsx-c59abbb6a54eeaa{text-transform:uppercase;letter-spacing:1px;font-size:18px;font-weight:800}.hamburger-btn.jsx-c59abbb6a54eeaa{color:#fff;cursor:pointer;background:0 0;border:none;padding:0;font-size:24px}.sidebar-backdrop.jsx-c59abbb6a54eeaa{z-index:99;background:#00000080;display:none;position:fixed;inset:0}.sidebar-container.jsx-c59abbb6a54eeaa{color:#fff;z-index:100;background:#3d5a2d;flex-direction:column;flex-shrink:0;gap:40px;width:260px;height:100vh;padding:30px;transition:transform .3s;display:flex;position:sticky;top:0}.sidebar-title.jsx-c59abbb6a54eeaa{text-transform:uppercase;letter-spacing:1px;margin:0;font-size:20px;font-weight:800}.sidebar-subtitle.jsx-c59abbb6a54eeaa{opacity:.7;margin-top:5px;font-size:12px}.sidebar-nav.jsx-c59abbb6a54eeaa{flex-direction:column;gap:10px;display:flex}.nav-link.jsx-c59abbb6a54eeaa{color:#fff;opacity:.8;border-radius:8px;padding:12px 15px;font-size:14px;text-decoration:none;transition:background .3s}.nav-link.active.jsx-c59abbb6a54eeaa{opacity:1;background:#ffffff1a;font-weight:700}.logout-btn.jsx-c59abbb6a54eeaa{color:#fff;cursor:pointer;opacity:.8;background:0 0;border:none;padding:0;font-size:14px}@media (width<=1024px){.mobile-header.jsx-c59abbb6a54eeaa{display:flex}.sidebar-container.jsx-c59abbb6a54eeaa{max-width:80vw;position:fixed;top:0;left:0;transform:translate(-100%)}.sidebar-container.open.jsx-c59abbb6a54eeaa{transform:translate(0)}.sidebar-backdrop.jsx-c59abbb6a54eeaa{display:block}}"
             }, void 0, false, void 0, this)
         ]
     }, void 0, true);

@@ -19,14 +19,17 @@ function ClientsPage() {
     const [clients, setClients] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
     const [isAddModalOpen, setIsAddModalOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [isEditModalOpen, setIsEditModalOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [isSubmitting, setIsSubmitting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [newClient, setNewClient] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
         full_name: "",
         height: "",
         weight: "",
         target_weight: "",
-        age: ""
+        age: "",
+        gender: "Erkek"
     });
+    const [editingClient, setEditingClient] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         fetchClients();
     }, []);
@@ -75,7 +78,8 @@ function ClientsPage() {
                     height: Number(newClient.height),
                     weight: Number(newClient.weight),
                     target_weight: Number(newClient.target_weight),
-                    age: Number(newClient.age)
+                    age: Number(newClient.age),
+                    gender: newClient.gender
                 });
                 if (profileError) throw profileError;
                 alert('Danışan başarıyla eklendi!');
@@ -85,13 +89,38 @@ function ClientsPage() {
                     height: "",
                     weight: "",
                     target_weight: "",
-                    age: ""
+                    age: "",
+                    gender: "Erkek"
                 });
                 fetchClients(); // Refresh list
             }
         } catch (error) {
             console.error('Ekleme hatası:', error);
             alert('Danışan eklenirken bir hata oluştu: ' + error.message);
+        } finally{
+            setIsSubmitting(false);
+        }
+    };
+    const handleUpdateClient = async (e)=>{
+        e.preventDefault();
+        setIsSubmitting(true);
+        try {
+            const { error } = await __TURBOPACK__imported__module__$5b$project$5d2f$utils$2f$supabase$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from('profiles').update({
+                full_name: editingClient.full_name,
+                height: Number(editingClient.height),
+                weight: Number(editingClient.weight),
+                target_weight: Number(editingClient.target_weight),
+                age: Number(editingClient.age),
+                gender: editingClient.gender
+            }).eq('id', editingClient.id);
+            if (error) throw error;
+            alert('Danışan başarıyla güncellendi!');
+            setIsEditModalOpen(false);
+            setEditingClient(null);
+            fetchClients(); // Listeyi yenile
+        } catch (error) {
+            console.error('Güncelleme hatası:', error);
+            alert('Danışan güncellenirken bir hata oluştu: ' + error.message);
         } finally{
             setIsSubmitting(false);
         }
@@ -145,7 +174,7 @@ function ClientsPage() {
                                     children: "Danışan Yönetimi"
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/clients/page.tsx",
-                                    lineNumber: 132,
+                                    lineNumber: 167,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -155,13 +184,13 @@ function ClientsPage() {
                                     children: "Sisteme kayıtlı tüm danışanlarınızın listesi ve analiz verileri."
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/clients/page.tsx",
-                                    lineNumber: 133,
+                                    lineNumber: 168,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/admin/clients/page.tsx",
-                            lineNumber: 131,
+                            lineNumber: 166,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -180,13 +209,13 @@ function ClientsPage() {
                             children: "+ Danışan Ekle"
                         }, void 0, false, {
                             fileName: "[project]/app/admin/clients/page.tsx",
-                            lineNumber: 135,
+                            lineNumber: 170,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/admin/clients/page.tsx",
-                    lineNumber: 130,
+                    lineNumber: 165,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -216,7 +245,7 @@ function ClientsPage() {
                                             children: "Ad Soyad"
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/clients/page.tsx",
-                                            lineNumber: 158,
+                                            lineNumber: 193,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -224,7 +253,7 @@ function ClientsPage() {
                                             children: "Boy"
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/clients/page.tsx",
-                                            lineNumber: 159,
+                                            lineNumber: 194,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -232,7 +261,7 @@ function ClientsPage() {
                                             children: "Kilo"
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/clients/page.tsx",
-                                            lineNumber: 160,
+                                            lineNumber: 195,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -240,7 +269,7 @@ function ClientsPage() {
                                             children: "VKI"
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/clients/page.tsx",
-                                            lineNumber: 161,
+                                            lineNumber: 196,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -248,7 +277,7 @@ function ClientsPage() {
                                             children: "BMH"
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/clients/page.tsx",
-                                            lineNumber: 162,
+                                            lineNumber: 197,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -256,7 +285,7 @@ function ClientsPage() {
                                             children: "Hedef"
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/clients/page.tsx",
-                                            lineNumber: 163,
+                                            lineNumber: 198,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -264,18 +293,18 @@ function ClientsPage() {
                                             children: "İşlemler"
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/clients/page.tsx",
-                                            lineNumber: 164,
+                                            lineNumber: 199,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/admin/clients/page.tsx",
-                                    lineNumber: 157,
+                                    lineNumber: 192,
                                     columnNumber: 29
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                lineNumber: 156,
+                                lineNumber: 191,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -290,17 +319,25 @@ function ClientsPage() {
                                         children: "Yükleniyor..."
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                        lineNumber: 170,
+                                        lineNumber: 205,
                                         columnNumber: 37
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/clients/page.tsx",
-                                    lineNumber: 169,
+                                    lineNumber: 204,
                                     columnNumber: 33
                                 }, this) : clients.length > 0 ? clients.map((client)=>{
                                     const bmi = (Number(client.weight) / (Number(client.height) / 100) ** 2).toFixed(1);
                                     const clientAge = Number(client.age) || 30; // Varsayılan 30 yaş
-                                    const bmh = Math.round(10 * Number(client.weight) + 6.25 * Number(client.height) - 5 * clientAge + 5);
+                                    const clientGender = client.gender || "Erkek";
+                                    // BMH Hedef Kilo üzerinden hesaplanıyor
+                                    let bmh = 0;
+                                    const targetW = Number(client.target_weight) || Number(client.weight); // Hedef kilo yoksa mevcut kiloyu al
+                                    if (clientGender === 'Kadın') {
+                                        bmh = Math.round(10 * targetW + 6.25 * Number(client.height) - 5 * clientAge - 161);
+                                    } else {
+                                        bmh = Math.round(10 * targetW + 6.25 * Number(client.height) - 5 * clientAge + 5);
+                                    }
                                     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                         style: {
                                             borderBottom: "1px solid #f1f1f1"
@@ -317,7 +354,7 @@ function ClientsPage() {
                                                         children: client.full_name
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                                        lineNumber: 182,
+                                                        lineNumber: 227,
                                                         columnNumber: 45
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -333,13 +370,13 @@ function ClientsPage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                                        lineNumber: 183,
+                                                        lineNumber: 228,
                                                         columnNumber: 45
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 181,
+                                                lineNumber: 226,
                                                 columnNumber: 41
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -350,7 +387,7 @@ function ClientsPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 185,
+                                                lineNumber: 230,
                                                 columnNumber: 41
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -361,7 +398,7 @@ function ClientsPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 186,
+                                                lineNumber: 231,
                                                 columnNumber: 41
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -377,12 +414,12 @@ function ClientsPage() {
                                                     children: bmi
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/admin/clients/page.tsx",
-                                                    lineNumber: 188,
+                                                    lineNumber: 233,
                                                     columnNumber: 45
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 187,
+                                                lineNumber: 232,
                                                 columnNumber: 41
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -408,18 +445,18 @@ function ClientsPage() {
                                                             children: "kcal"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/admin/clients/page.tsx",
-                                                            lineNumber: 204,
+                                                            lineNumber: 249,
                                                             columnNumber: 54
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/admin/clients/page.tsx",
-                                                    lineNumber: 197,
+                                                    lineNumber: 242,
                                                     columnNumber: 45
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 196,
+                                                lineNumber: 241,
                                                 columnNumber: 41
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -430,7 +467,7 @@ function ClientsPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 206,
+                                                lineNumber: 251,
                                                 columnNumber: 41
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -455,7 +492,28 @@ function ClientsPage() {
                                                             children: "Diyet Hazırla"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/admin/clients/page.tsx",
-                                                            lineNumber: 209,
+                                                            lineNumber: 254,
+                                                            columnNumber: 49
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                            onClick: ()=>{
+                                                                setEditingClient({
+                                                                    ...client,
+                                                                    target_weight: client.target_weight || client.weight
+                                                                });
+                                                                setIsEditModalOpen(true);
+                                                            },
+                                                            style: {
+                                                                ...actionBtn,
+                                                                color: "#3498db",
+                                                                fontSize: "14px",
+                                                                fontWeight: "bold",
+                                                                padding: "8px 15px"
+                                                            },
+                                                            children: "Güncelle"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/app/admin/clients/page.tsx",
+                                                            lineNumber: 268,
                                                             columnNumber: 49
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -470,24 +528,24 @@ function ClientsPage() {
                                                             children: "Sil"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/admin/clients/page.tsx",
-                                                            lineNumber: 223,
+                                                            lineNumber: 277,
                                                             columnNumber: 49
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/admin/clients/page.tsx",
-                                                    lineNumber: 208,
+                                                    lineNumber: 253,
                                                     columnNumber: 45
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 207,
+                                                lineNumber: 252,
                                                 columnNumber: 41
                                             }, this)
                                         ]
                                     }, client.id, true, {
                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                        lineNumber: 180,
+                                        lineNumber: 225,
                                         columnNumber: 37
                                     }, this);
                                 }) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -501,28 +559,28 @@ function ClientsPage() {
                                         children: "Henüz kayıtlı danışan bulunmuyor."
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                        lineNumber: 230,
+                                        lineNumber: 284,
                                         columnNumber: 37
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/clients/page.tsx",
-                                    lineNumber: 229,
+                                    lineNumber: 283,
                                     columnNumber: 33
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                lineNumber: 167,
+                                lineNumber: 202,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/admin/clients/page.tsx",
-                        lineNumber: 155,
+                        lineNumber: 190,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/admin/clients/page.tsx",
-                    lineNumber: 154,
+                    lineNumber: 189,
                     columnNumber: 17
                 }, this),
                 isAddModalOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -557,7 +615,7 @@ function ClientsPage() {
                                 children: "Manuel Danışan Ekle"
                             }, void 0, false, {
                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                lineNumber: 250,
+                                lineNumber: 304,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -575,7 +633,7 @@ function ClientsPage() {
                                                 children: "Ad Soyad"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 253,
+                                                lineNumber: 307,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -590,13 +648,13 @@ function ClientsPage() {
                                                 placeholder: "Örn: Ali Yılmaz"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 254,
+                                                lineNumber: 308,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                        lineNumber: 252,
+                                        lineNumber: 306,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -615,7 +673,7 @@ function ClientsPage() {
                                                         children: "Boy (cm)"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                                        lineNumber: 258,
+                                                        lineNumber: 312,
                                                         columnNumber: 41
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -630,13 +688,13 @@ function ClientsPage() {
                                                         placeholder: "180"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                                        lineNumber: 259,
+                                                        lineNumber: 313,
                                                         columnNumber: 41
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 257,
+                                                lineNumber: 311,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -649,7 +707,7 @@ function ClientsPage() {
                                                         children: "Kilo (kg)"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                                        lineNumber: 262,
+                                                        lineNumber: 316,
                                                         columnNumber: 41
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -665,19 +723,19 @@ function ClientsPage() {
                                                         placeholder: "75"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                                        lineNumber: 263,
+                                                        lineNumber: 317,
                                                         columnNumber: 41
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 261,
+                                                lineNumber: 315,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                        lineNumber: 256,
+                                        lineNumber: 310,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -696,7 +754,7 @@ function ClientsPage() {
                                                         children: "Hedef Kilo (kg)"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                                        lineNumber: 268,
+                                                        lineNumber: 322,
                                                         columnNumber: 41
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -712,13 +770,13 @@ function ClientsPage() {
                                                         placeholder: "70"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                                        lineNumber: 269,
+                                                        lineNumber: 323,
                                                         columnNumber: 41
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 267,
+                                                lineNumber: 321,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -731,7 +789,7 @@ function ClientsPage() {
                                                         children: "Yaş"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                                        lineNumber: 272,
+                                                        lineNumber: 326,
                                                         columnNumber: 41
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -746,19 +804,65 @@ function ClientsPage() {
                                                         placeholder: "30"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                                        lineNumber: 273,
+                                                        lineNumber: 327,
                                                         columnNumber: 41
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 271,
+                                                lineNumber: 325,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                        lineNumber: 266,
+                                        lineNumber: 320,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                style: labelStyle,
+                                                children: "Cinsiyet"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/admin/clients/page.tsx",
+                                                lineNumber: 331,
+                                                columnNumber: 37
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                                style: inputStyle,
+                                                value: newClient.gender,
+                                                onChange: (e)=>setNewClient({
+                                                        ...newClient,
+                                                        gender: e.target.value
+                                                    }),
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "Erkek",
+                                                        children: "Erkek"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                                        lineNumber: 333,
+                                                        columnNumber: 41
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "Kadın",
+                                                        children: "Kadın"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                                        lineNumber: 334,
+                                                        columnNumber: 41
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/admin/clients/page.tsx",
+                                                lineNumber: 332,
+                                                columnNumber: 37
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                        lineNumber: 330,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -784,7 +888,7 @@ function ClientsPage() {
                                                 children: "İptal"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 278,
+                                                lineNumber: 339,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -803,36 +907,384 @@ function ClientsPage() {
                                                 children: isSubmitting ? 'Ekleniyor...' : 'Kaydet'
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                                lineNumber: 284,
+                                                lineNumber: 345,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/admin/clients/page.tsx",
-                                        lineNumber: 277,
+                                        lineNumber: 338,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/admin/clients/page.tsx",
-                                lineNumber: 251,
+                                lineNumber: 305,
                                 columnNumber: 29
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/admin/clients/page.tsx",
-                        lineNumber: 246,
+                        lineNumber: 300,
                         columnNumber: 25
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/admin/clients/page.tsx",
-                    lineNumber: 241,
+                    lineNumber: 295,
+                    columnNumber: 21
+                }, this),
+                isEditModalOpen && editingClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backgroundColor: 'rgba(0,0,0,0.5)',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        zIndex: 1000
+                    },
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            background: 'white',
+                            padding: '30px',
+                            borderRadius: '15px',
+                            width: '90%',
+                            maxWidth: '500px',
+                            boxShadow: '0 10px 25px rgba(0,0,0,0.2)'
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                style: {
+                                    marginTop: 0,
+                                    marginBottom: '20px',
+                                    color: '#2c3e50'
+                                },
+                                children: "Danışan Güncelle"
+                            }, void 0, false, {
+                                fileName: "[project]/app/admin/clients/page.tsx",
+                                lineNumber: 369,
+                                columnNumber: 29
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                                onSubmit: handleUpdateClient,
+                                style: {
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: '15px'
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                style: labelStyle,
+                                                children: "Ad Soyad"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/admin/clients/page.tsx",
+                                                lineNumber: 372,
+                                                columnNumber: 37
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                required: true,
+                                                type: "text",
+                                                style: inputStyle,
+                                                value: editingClient.full_name || "",
+                                                onChange: (e)=>setEditingClient({
+                                                        ...editingClient,
+                                                        full_name: e.target.value
+                                                    })
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/admin/clients/page.tsx",
+                                                lineNumber: 373,
+                                                columnNumber: 37
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                        lineNumber: 371,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            display: 'flex',
+                                            gap: '15px'
+                                        },
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                style: {
+                                                    flex: 1
+                                                },
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        style: labelStyle,
+                                                        children: "Boy (cm)"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                                        lineNumber: 377,
+                                                        columnNumber: 41
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        required: true,
+                                                        type: "number",
+                                                        style: inputStyle,
+                                                        value: editingClient.height || "",
+                                                        onChange: (e)=>setEditingClient({
+                                                                ...editingClient,
+                                                                height: e.target.value
+                                                            })
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                                        lineNumber: 378,
+                                                        columnNumber: 41
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/admin/clients/page.tsx",
+                                                lineNumber: 376,
+                                                columnNumber: 37
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                style: {
+                                                    flex: 1
+                                                },
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        style: labelStyle,
+                                                        children: "Kilo (kg)"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                                        lineNumber: 381,
+                                                        columnNumber: 41
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        required: true,
+                                                        type: "number",
+                                                        step: "0.1",
+                                                        style: inputStyle,
+                                                        value: editingClient.weight || "",
+                                                        onChange: (e)=>setEditingClient({
+                                                                ...editingClient,
+                                                                weight: e.target.value
+                                                            })
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                                        lineNumber: 382,
+                                                        columnNumber: 41
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/admin/clients/page.tsx",
+                                                lineNumber: 380,
+                                                columnNumber: 37
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                        lineNumber: 375,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            display: 'flex',
+                                            gap: '15px'
+                                        },
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                style: {
+                                                    flex: 1
+                                                },
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        style: labelStyle,
+                                                        children: "Hedef Kilo (kg)"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                                        lineNumber: 387,
+                                                        columnNumber: 41
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        required: true,
+                                                        type: "number",
+                                                        step: "0.1",
+                                                        style: inputStyle,
+                                                        value: editingClient.target_weight || "",
+                                                        onChange: (e)=>setEditingClient({
+                                                                ...editingClient,
+                                                                target_weight: e.target.value
+                                                            })
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                                        lineNumber: 388,
+                                                        columnNumber: 41
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/admin/clients/page.tsx",
+                                                lineNumber: 386,
+                                                columnNumber: 37
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                style: {
+                                                    flex: 1
+                                                },
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        style: labelStyle,
+                                                        children: "Yaş"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                                        lineNumber: 391,
+                                                        columnNumber: 41
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        required: true,
+                                                        type: "number",
+                                                        style: inputStyle,
+                                                        value: editingClient.age || "",
+                                                        onChange: (e)=>setEditingClient({
+                                                                ...editingClient,
+                                                                age: e.target.value
+                                                            })
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                                        lineNumber: 392,
+                                                        columnNumber: 41
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/admin/clients/page.tsx",
+                                                lineNumber: 390,
+                                                columnNumber: 37
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                        lineNumber: 385,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                style: labelStyle,
+                                                children: "Cinsiyet"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/admin/clients/page.tsx",
+                                                lineNumber: 396,
+                                                columnNumber: 37
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                                style: inputStyle,
+                                                value: editingClient.gender || "Erkek",
+                                                onChange: (e)=>setEditingClient({
+                                                        ...editingClient,
+                                                        gender: e.target.value
+                                                    }),
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "Erkek",
+                                                        children: "Erkek"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                                        lineNumber: 398,
+                                                        columnNumber: 41
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "Kadın",
+                                                        children: "Kadın"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                                        lineNumber: 399,
+                                                        columnNumber: 41
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/admin/clients/page.tsx",
+                                                lineNumber: 397,
+                                                columnNumber: 37
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                        lineNumber: 395,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            display: 'flex',
+                                            justifyContent: 'flex-end',
+                                            gap: '10px',
+                                            marginTop: '20px'
+                                        },
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                type: "button",
+                                                onClick: ()=>{
+                                                    setIsEditModalOpen(false);
+                                                    setEditingClient(null);
+                                                },
+                                                style: {
+                                                    padding: '10px 20px',
+                                                    border: 'none',
+                                                    background: '#ecf0f1',
+                                                    color: '#7f8c8d',
+                                                    borderRadius: '8px',
+                                                    cursor: 'pointer',
+                                                    fontWeight: 600
+                                                },
+                                                children: "İptal"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/admin/clients/page.tsx",
+                                                lineNumber: 404,
+                                                columnNumber: 37
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                type: "submit",
+                                                disabled: isSubmitting,
+                                                style: {
+                                                    padding: '10px 20px',
+                                                    border: 'none',
+                                                    background: '#3498db',
+                                                    color: 'white',
+                                                    borderRadius: '8px',
+                                                    cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                                                    fontWeight: 600,
+                                                    opacity: isSubmitting ? 0.7 : 1
+                                                },
+                                                children: isSubmitting ? 'Güncelleniyor...' : 'Güncelle'
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/admin/clients/page.tsx",
+                                                lineNumber: 410,
+                                                columnNumber: 37
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/admin/clients/page.tsx",
+                                        lineNumber: 403,
+                                        columnNumber: 33
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/admin/clients/page.tsx",
+                                lineNumber: 370,
+                                columnNumber: 29
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/admin/clients/page.tsx",
+                        lineNumber: 365,
+                        columnNumber: 25
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/app/admin/clients/page.tsx",
+                    lineNumber: 360,
                     columnNumber: 21
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/admin/clients/page.tsx",
-            lineNumber: 128,
+            lineNumber: 163,
             columnNumber: 13
         }, this)
     }, void 0, false);
