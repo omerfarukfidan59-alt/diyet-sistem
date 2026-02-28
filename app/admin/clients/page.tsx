@@ -20,6 +20,13 @@ export default function ClientsPage() {
     });
     const [editingClient, setEditingClient] = useState<any>(null);
 
+    // Not sistemi state'leri
+    const [isNoteModalOpen, setIsNoteModalOpen] = useState(false);
+    const [noteClient, setNoteClient] = useState<any>(null);
+    const [noteText, setNoteText] = useState("");
+    const [isSavingNote, setIsSavingNote] = useState(false);
+    const [noteLoading, setNoteLoading] = useState(false);
+
     useEffect(() => {
         fetchClients();
     }, []);
@@ -129,6 +136,61 @@ export default function ClientsPage() {
             alert('Danışan güncellenirken bir hata oluştu: ' + error.message);
         } finally {
             setIsSubmitting(false);
+        }
+    };
+
+    // Not modal'ını aç ve mevcut notu DB'den çek
+    const handleOpenNote = async (client: any) => {
+        setNoteClient(client);
+        setNoteText("");
+        setIsNoteModalOpen(true);
+        setNoteLoading(true);
+
+        const { data } = await supabase
+            .from('client_notes')
+            .select('note')
+            .eq('client_id', client.id)
+            .maybeSingle();
+
+        setNoteText(data?.note || "");
+        setNoteLoading(false);
+    };
+
+    // Notu kaydet (önce var mı kontrol et, varsa güncelle, yoksa ekle)
+    const handleSaveNote = async () => {
+        if (!noteClient) return;
+        setIsSavingNote(true);
+
+        // Mevcut kayıt var mı?
+        const { data: existing } = await supabase
+            .from('client_notes')
+            .select('id')
+            .eq('client_id', noteClient.id)
+            .maybeSingle();
+
+        let error;
+        if (existing) {
+            // Güncelle
+            const res = await supabase
+                .from('client_notes')
+                .update({ note: noteText, updated_at: new Date().toISOString() })
+                .eq('client_id', noteClient.id);
+            error = res.error;
+        } else {
+            // Yeni ekle
+            const res = await supabase
+                .from('client_notes')
+                .insert({ client_id: noteClient.id, note: noteText });
+            error = res.error;
+        }
+
+        setIsSavingNote(false);
+
+        if (error) {
+            alert('Not kaydedilirken hata oluştu: ' + error.message);
+        } else {
+            setIsNoteModalOpen(false);
+            setNoteClient(null);
         }
     };
 
@@ -250,7 +312,7 @@ export default function ClientsPage() {
                                         </td>
                                         <td style={tdStyle}>{client.target_weight} kg</td>
                                         <td style={tdStyle}>
-                                            <div style={{ display: "flex", gap: "10px" }}>
+                                            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
                                                 <Link
                                                     href={`/admin/clients/${client.id}/diet`}
                                                     style={{
@@ -265,6 +327,13 @@ export default function ClientsPage() {
                                                 >
                                                     Diyet Hazırla
                                                 </Link>
+                                                <button
+                                                    onClick={() => handleOpenNote(client)}
+                                                    style={{ ...actionBtn, color: "#e67e22", fontSize: "14px", fontWeight: "bold", padding: "8px 12px", background: "#fef9f0", border: "1px solid #f0a500", borderRadius: "8px" }}
+                                                    title="Danışan Notu"
+                                                >
+                                                    📝 Not
+                                                </button>
                                                 <button
                                                     onClick={() => {
                                                         setEditingClient({ ...client, target_weight: client.target_weight || client.weight });
@@ -416,6 +485,83 @@ export default function ClientsPage() {
                                     </button>
                                 </div>
                             </form>
+                        </div>
+                    </div>
+                )}
+
+                {/* Not Modal'ı */}
+                {isNoteModalOpen && noteClient && (
+                    <div style={{
+                        position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+                        backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex',
+                        justifyContent: 'center', alignItems: 'center', zIndex: 1000
+                    }}>
+                        <div style={{
+                            background: 'white', padding: '30px', borderRadius: '15px',
+                            width: '90%', maxWidth: '520px', boxShadow: '0 10px 25px rgba(0,0,0,0.2)'
+                        }}>
+                            {/* Modal Başlık */}
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
+                                <span style={{ fontSize: '22px' }}>📝</span>
+                                <h2 style={{ margin: 0, color: '#2c3e50', fontSize: '20px' }}>Danışan Notu</h2>
+                            </div>
+                            <p style={{ margin: '0 0 20px', color: '#7f8c8d', fontSize: '14px' }}>
+                                <strong>{noteClient.full_name}</strong> için özel not — sadece siz görebilirsiniz.
+                            </p>
+
+                            {/* Not alanı */}
+                            {noteLoading ? (
+                                <div style={{ padding: '20px', textAlign: 'center', color: '#95a5a6' }}>Yükleniyor...</div>
+                            ) : (
+                                <textarea
+                                    value={noteText}
+                                    onChange={e => setNoteText(e.target.value)}
+                                    placeholder={`Örn: Balık yemiyor, laktozsuz besleniyor, haftada 3 gün spor yapıyor...`}
+                                    rows={7}
+                                    style={{
+                                        width: '100%',
+                                        padding: '12px 15px',
+                                        border: '1px solid #dce1e7',
+                                        borderRadius: '10px',
+                                        fontSize: '14px',
+                                        resize: 'vertical',
+                                        boxSizing: 'border-box',
+                                        outline: 'none',
+                                        lineHeight: '1.6',
+                                        fontFamily: 'inherit',
+                                        color: '#2c3e50'
+                                    }}
+                                />
+                            )}
+
+                            {/* Butonlar */}
+                            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '20px' }}>
+                                <button
+                                    type="button"
+                                    onClick={() => { setIsNoteModalOpen(false); setNoteClient(null); }}
+                                    style={{
+                                        padding: '10px 20px', border: 'none', background: '#ecf0f1',
+                                        color: '#7f8c8d', borderRadius: '8px', cursor: 'pointer', fontWeight: 600
+                                    }}
+                                >
+                                    İptal
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={handleSaveNote}
+                                    disabled={isSavingNote || noteLoading}
+                                    style={{
+                                        padding: '10px 20px', border: 'none',
+                                        background: '#e67e22', color: 'white',
+                                        borderRadius: '8px',
+                                        cursor: (isSavingNote || noteLoading) ? 'not-allowed' : 'pointer',
+                                        fontWeight: 600,
+                                        opacity: (isSavingNote || noteLoading) ? 0.7 : 1
+                                    }}
+                                >
+                                    {isSavingNote ? 'Kaydediliyor...' : '💾 Kaydet'}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 )}
