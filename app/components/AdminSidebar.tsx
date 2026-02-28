@@ -51,12 +51,16 @@ export default function AdminSidebar() {
                     <Link href="/admin/food" className={`nav-link ${pathname.startsWith("/admin/food") ? "active" : ""}`} onClick={closeSidebar}>
                         Besin Kütüphanesi
                     </Link>
+                    <Link href="/admin/templates" className={`nav-link ${pathname.startsWith("/admin/templates") ? "active" : ""}`} onClick={closeSidebar}>
+                        Hazır Şablonlar
+                    </Link>
                     <Link href="/admin/appointments" className={`nav-link ${pathname.startsWith("/admin/appointments") ? "active" : ""}`} onClick={closeSidebar}>
                         Randevu Takvimi
                     </Link>
                     <Link href="/admin/reports" className={`nav-link ${pathname.startsWith("/admin/reports") ? "active" : ""}`} onClick={closeSidebar}>
                         Raporlar
                     </Link>
+
                 </nav>
 
                 <div style={{ marginTop: "auto" }}>
